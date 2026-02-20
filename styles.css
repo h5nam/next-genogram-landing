@@ -689,6 +689,13 @@ h4 {
     animation: drawStructLine 4s ease-out forwards;
 }
 
+.struct-line.conflict {
+    stroke: #EF4444;
+    /* Red for conflict */
+    stroke-width: 4;
+    filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.4));
+}
+
 @keyframes drawStructLine {
     to {
         stroke-dashoffset: 0;
@@ -790,7 +797,7 @@ h4 {
 }
 
 /*-----------------------------------------
-   Why Genogram Section 
+   Why Genogram Section (Fancy SVG)
 -----------------------------------------*/
 .why-genogram-section {
     padding: 100px 0;
@@ -808,7 +815,7 @@ h4 {
     flex: 1;
 }
 
-.genogram-illustration {
+.fancy-wrapper {
     width: 100%;
     aspect-ratio: 1;
     background: white;
@@ -816,66 +823,79 @@ h4 {
     position: relative;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
-    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-    background-size: 20px 20px;
+    overflow: hidden;
 }
 
-.g-node {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 4px solid var(--primary-color);
-    background: white;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+.fancy-genogram {
+    width: 100%;
+    height: 100%;
 }
 
-.g-node.square {
-    border-radius: 12px;
+.fancy-node {
+    transition: var(--transition);
 }
 
-.g-node.circle {
-    border-radius: 50%;
+.fancy-node:hover {
+    transform: translateY(-5px);
+    stroke: var(--primary-color);
 }
 
-.g-node.target {
-    border: 4px double var(--primary-color);
-    background: rgba(68, 206, 75, 0.1);
+.ip-node {
+    animation: ipFloat 4s ease-in-out infinite alternate;
 }
 
-.g-link {
-    position: absolute;
-    background: var(--primary-color);
-    z-index: 1;
-    transform: translate(0, -50%);
-    opacity: 0.6;
+.fancy-pulse {
+    animation: fancyPulseRing 3s infinite;
+    transform-origin: 300px 200px;
 }
 
-.g-link.vertical {
-    transform: translate(-50%, 0);
+.conflict-pulse {
+    animation: conflictGlow 2s infinite alternate;
 }
 
-.pulse-ring {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 1;
-    animation: pulseRing 2.5s infinite;
-}
-
-@keyframes pulseRing {
+@keyframes ipFloat {
     0% {
-        box-shadow: 0 0 0 0 rgba(68, 206, 75, 0.6);
-    }
-
-    70% {
-        box-shadow: 0 0 0 30px rgba(68, 206, 75, 0);
+        transform: translateY(0);
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(68, 206, 75, 0);
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fancyPulseRing {
+    0% {
+        transform: scale(1);
+        stroke-width: 3;
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.6);
+        stroke-width: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes conflictGlow {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.3));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+    }
+}
+
+@keyframes fadeConflict {
+    0% {
+        opacity: 0.1;
+        box-shadow: 0 0 0 rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        opacity: 0.8;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
     }
 }
 
