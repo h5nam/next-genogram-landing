@@ -17,8 +17,14 @@
 <body>
     <header class="navbar">
         <div class="container nav-content">
-            <div class="logo">MaumToss</div>
-            <a href="#apply" class="nav-cta hover-lift">신청하기</a>
+            <a href="/" class="logo">
+                <img src="https://cdn.prod.website-files.com/677d1f63644d3489a05f3021/6912b42c51f02284c5312a4a_logo_mindthos-3.webp"
+                    alt="마음토스 로고" class="logo-img">
+            </a>
+            <div class="nav-actions">
+                <a href="https://app.mindthos.com/" class="nav-link hide-mobile" target="_blank">마음토스 무료로 사용하기</a>
+                <a href="#apply" class="nav-cta hover-lift">신청하기</a>
+            </div>
         </div>
     </header>
 
@@ -324,7 +330,7 @@
                             <!-- 3. 엄마-자녀 단절 (Mother-Child Cut-off: curved line with two slashes) -->
                             <path d="M 300 130 Q 280 220 225 285" stroke="#1E293B" stroke-width="1.5" fill="none" />
                             <!-- Cut-off slashes in the middle of the curve -->
-                            <path d="M 260 200 L 276 216 M 250 210 L 266 226" stroke="#1E293B" stroke-width="1.5"
+                            <path d="M 270 200 L 286 216 M 260 210 L 276 226" stroke="#1E293B" stroke-width="1.5"
                                 fill="none" />
                             <text x="290" y="240" fill="#1E293B" font-size="12" font-weight="700">단절됨</text>
 
@@ -415,7 +421,7 @@
         <section id="curriculum" class="curriculum-section reveal">
             <div class="container">
                 <div class="curriculum-header">
-                    <h2 class="section-title">Next Genogram 2nd Edition : 4시간 심화 마스터 클래스</h2>
+                    <h2 class="section-title">Next Genogram : 4시간 심화 마스터 클래스</h2>
                     <p class="sub-title">이론적 깊이와 기술적 혁신을 하루 만에 완성합니다.</p>
                 </div>
 
@@ -426,7 +432,7 @@
                             <h3>가계도, 가족 역동을 읽는 지도 (90분)</h3>
                             <div class="lecturer hover-lift">
                                 <i class="ph-fill ph-chalkboard-teacher"></i>
-                                <span><strong>이인수 교수</strong> (가계도 공번역자 / 전 한국상담학회 부부가족상담분과 회장)</span>
+                                <span><strong>이인수 교수</strong> (가계도4판 공번역자 / 전 한국상담학회 부부가족상담분과 회장)</span>
                             </div>
                             <p>단순히 기호를 외우는 것을 넘어, 가족 체계 내의 불안과 다세대 전수 과정을 읽어내는 심층 해석 능력을 기릅니다.</p>
                         </div>
@@ -437,7 +443,7 @@
                             <h3>기록에서 통찰로, 마음토스 AI 실습 (150분)</h3>
                             <div class="lecturer hover-lift">
                                 <i class="ph-fill ph-laptop"></i>
-                                <span><strong>강호남 대표</strong> (마인드풀랩스)</span>
+                                <span><strong>강호남 대표</strong> (마음토스)</span>
                             </div>
                             <p class="hide-mobile">노트북을 켜고 차근차근 따라 해보는 완벽한 실습. 컴퓨터에 익숙하지 않으셔도 현장 스태프가 밀착 지원합니다.</p>
 
@@ -508,7 +514,7 @@
         <!-- Section 7: CTA & Info -->
         <section id="apply" class="apply-section reveal">
             <div class="container">
-                <h2 class="section-title">Next Genogram 2nd Edition 4시간 심화 워크숍 상세 정보</h2>
+                <h2 class="section-title">Next Genogram 4시간 심화 워크숍 상세 정보</h2>
 
                 <div class="info-card hover-lift-slight">
                     <table class="info-table">
@@ -541,7 +547,7 @@
                 </div>
 
                 <div class="form-container hover-lift-slight">
-                    <h3>신청 폼 및 결제</h3>
+                    <h3>세미나 신청하기</h3>
                     <form class="apply-form" onsubmit="event.preventDefault(); alert('결제 페이지로 이동합니다.');">
                         <div class="form-group">
                             <label for="session">희망 회차 선택</label>
@@ -551,7 +557,7 @@
                                 <option value="2">2회차: 3월 19일(목) 14:00</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full hover-pulse">2차 심화 워크숍 예약하기 (마감
+                        <button type="submit" class="btn btn-primary btn-full hover-pulse">2차 워크숍 예약하기 (마감
                             임박)</button>
                     </form>
                 </div>
@@ -560,8 +566,17 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Mindful Labs Inc. All rights reserved.</p>
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div class="footer-left">
+                <img src="https://cdn.prod.website-files.com/677d1f63644d3489a05f3021/6912b42c51f02284c5312a4a_logo_mindthos-3.webp"
+                    alt="마음토스 로고" style="height: 24px; margin-bottom: 10px; opacity: 0.7;">
+                <p>&copy; 2026 Mindful Labs Inc. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://app.mindthos.com/" class="btn btn-outline" target="_blank"
+                    style="padding: 10px 20px; font-size: 0.9rem;">마음토스 무료로 사용하기</a>
+            </div>
         </div>
     </footer>
 
