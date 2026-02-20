@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.style.scrollSnapType = 'x mandatory';
         container.style.scrollbarWidth = 'none'; // Firefox
         container.style.msOverflowStyle = 'none';  // IE 10+
-        
+
         const trackCards = document.querySelectorAll('.review-card');
         trackCards.forEach(card => card.style.scrollSnapAlign = 'start');
     }
@@ -37,22 +37,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Smooth scrolling for anchor links with header offset
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
+            if (targetId === '#') return;
+
             const targetElement = document.querySelector(targetId);
-            if(targetElement) {
+            if (targetElement) {
                 const headerOffset = 70; // Map this to header height
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
+
                 window.scrollTo({
-                     top: offsetPosition,
-                     behavior: "smooth"
+                    top: offsetPosition,
+                    behavior: "smooth"
                 });
             }
         });
     });
+
+    // 4. Mobile Sticky CTA Visibility
+    const stickyCta = document.querySelector('.mobile-sticky-cta');
+    const heroSection = document.querySelector('.hero-section');
+    const applySection = document.querySelector('#apply');
+
+    if (stickyCta && heroSection) {
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Show sticky CTA when Hero section is NOT fully visible
+                if (!entry.isIntersecting) {
+                    stickyCta.classList.add('show');
+                } else {
+                    stickyCta.classList.remove('show');
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.2 // Hide/Show when 20% of hero is visible
+        });
+
+        ctaObserver.observe(heroSection);
+
+        // Hide CTA when Apply section is visible to avoid double CTA friction
+        if (applySection) {
+            const applyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        stickyCta.classList.remove('show');
+                    } else if (window.scrollY > heroSection.offsetHeight * 0.8) {
+                        // Re-show if we scrolled back up but are still below hero
+                        stickyCta.classList.add('show');
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1
+            });
+            applyObserver.observe(applySection);
+        }
+    }
 });

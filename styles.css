@@ -2,15 +2,32 @@
     --primary-color: #44CE4B;
     --primary-hover: #3BB541;
     --primary-gradient: linear-gradient(135deg, #44CE4B 0%, #20A68A 100%);
+
+    /* Light Theme */
     --bg-white: #ffffff;
     --bg-ivory: #FDFDFB;
     --text-main: #1A1A1A;
     --text-muted: #666666;
     --border-color: #EAEAEA;
+
+    /* Dark Theme */
+    --bg-dark: #07090F;
+    --bg-dark-secondary: #0D111A;
+    --text-light: #F5F5F7;
+    --text-light-muted: #A0A5B5;
+    --border-dark: rgba(255, 255, 255, 0.1);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+    /* Shadows */
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
     --shadow-hover: 0 15px 30px rgba(68, 206, 75, 0.2);
+
     --border-radius: 16px;
     --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -73,6 +90,26 @@ h4 {
 
 .text-left {
     text-align: left;
+}
+
+/*-----------------------------------------
+   Glassmorphism Utilities
+-----------------------------------------*/
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--border-radius);
+    color: var(--text-light);
+}
+
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /*-----------------------------------------
@@ -502,11 +539,22 @@ h4 {
 }
 
 /*-----------------------------------------
+   Dark Theme Overrides
+-----------------------------------------*/
+.dark-theme {
+    background: var(--bg-dark-secondary);
+    color: var(--text-light-muted);
+}
+
+.dark-theme .section-title {
+    color: var(--text-light);
+}
+
+/*-----------------------------------------
    Problem Section 
 -----------------------------------------*/
 .problem-section {
     padding: 100px 0;
-    background: var(--bg-white);
 }
 
 .problem-cards {
@@ -516,22 +564,48 @@ h4 {
     margin-bottom: 50px;
 }
 
-.card {
-    background: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 40px 30px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
 .problem-card {
     text-align: center;
+    padding: 40px 30px;
+    transition: var(--transition);
 }
 
 .icon-large {
     font-size: 3rem;
     margin-bottom: 24px;
+}
+
+.glitch-icon {
+    display: inline-block;
+    animation: glitchShake 3s infinite;
+}
+
+@keyframes glitchShake {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    2% {
+        transform: translate(-2px, 1px);
+    }
+
+    4% {
+        transform: translate(2px, -1px);
+    }
+
+    6% {
+        transform: translate(-1px, 2px);
+    }
+
+    8% {
+        transform: translate(1px, -2px);
+    }
+
+    10% {
+        transform: translate(0, 0);
+    }
 }
 
 .problem-card p {
@@ -540,16 +614,13 @@ h4 {
 }
 
 .problem-conclusion {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    background: var(--bg-ivory);
     padding: 40px;
     border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    color: var(--text-light-muted);
 }
 
 .problem-conclusion strong {
-    color: var(--text-main);
+    color: white;
     display: block;
     margin-top: 10px;
     font-size: 1.4rem;
@@ -574,74 +645,118 @@ h4 {
     flex: 1;
 }
 
-.genogram-illustration {
+.genogram-transform-container {
     width: 100%;
     aspect-ratio: 1;
-    background: white;
     border-radius: 30px;
     position: relative;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
-    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-    background-size: 20px 20px;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.g-node {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 4px solid var(--primary-color);
-    background: white;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+.transform-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
-.g-node.square {
-    border-radius: 12px;
+.chaos-state {
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
 }
 
-.g-node.circle {
-    border-radius: 50%;
+.reveal.active .chaos-state {
+    opacity: 0.1;
 }
 
-.g-node.target {
-    border: 4px double var(--primary-color);
-    background: rgba(68, 206, 75, 0.1);
+.draw-chaos {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
 }
 
-.g-link {
-    position: absolute;
-    background: var(--primary-color);
-    z-index: 1;
-    transform: translate(0, -50%);
-    opacity: 0.6;
+.reveal.active .draw-chaos {
+    animation: messyDraw 5s linear forwards;
 }
 
-.g-link.vertical {
-    transform: translate(-50%, 0);
+.order-state {
+    opacity: 0;
+    transition: opacity 2s ease-in-out 1.5s;
 }
 
-.pulse-ring {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 1;
-    animation: pulseRing 2.5s infinite;
+.reveal.active .order-state {
+    opacity: 1;
 }
 
-@keyframes pulseRing {
-    0% {
-        box-shadow: 0 0 0 0 rgba(68, 206, 75, 0.6);
+.gen-node {
+    fill: var(--bg-dark-secondary);
+    stroke: var(--text-light-muted);
+    stroke-width: 3;
+}
+
+.gen-node.male {
+    rx: 4;
+    ry: 4;
+}
+
+.gen-node.female {
+    r: 20;
+}
+
+.target-node {
+    stroke: var(--primary-color);
+    stroke-width: 4;
+    fill: rgba(68, 206, 75, 0.1);
+}
+
+.gen-link {
+    fill: none;
+    stroke: var(--text-light-muted);
+    stroke-width: 3;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+.reveal.active .gen-link {
+    animation: treeDraw 2s ease-in-out 1.5s forwards;
+}
+
+.ping-ring {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    opacity: 0;
+}
+
+.reveal.active .ping-ring {
+    animation: ringPing 3s infinite 3s;
+}
+
+@keyframes messyDraw {
+    to {
+        stroke-dashoffset: 0;
     }
+}
 
-    70% {
-        box-shadow: 0 0 0 30px rgba(68, 206, 75, 0);
+@keyframes treeDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes ringPing {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+        stroke-width: 4;
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(68, 206, 75, 0);
+        transform: scale(3);
+        opacity: 0;
+        stroke-width: 0;
     }
 }
 
@@ -720,7 +835,6 @@ h4 {
 -----------------------------------------*/
 .curriculum-section {
     padding: 100px 0;
-    background: var(--bg-ivory);
 }
 
 .curriculum-header {
@@ -730,7 +844,6 @@ h4 {
 
 .curriculum-header .sub-title {
     font-size: 1.2rem;
-    color: var(--text-muted);
 }
 
 .timeline {
@@ -746,7 +859,7 @@ h4 {
     left: 40px;
     width: 2px;
     height: 100%;
-    background: var(--border-color);
+    background: var(--border-dark);
 }
 
 .timeline-item {
@@ -769,7 +882,7 @@ h4 {
     align-items: center;
     font-weight: bold;
     font-size: 0.9rem;
-    box-shadow: 0 0 0 5px var(--bg-ivory);
+    box-shadow: 0 0 0 5px var(--bg-dark-secondary);
     z-index: 2;
 }
 
@@ -866,29 +979,12 @@ h4 {
 -----------------------------------------*/
 .target-section {
     padding: 100px 0;
-    background: #0D0E15;
-    color: white;
-}
-
-.target-section .section-title {
-    color: white;
 }
 
 .target-list {
     list-style: none;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.target-list li {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .icon-check {
@@ -989,6 +1085,54 @@ h4 {
 }
 
 /*-----------------------------------------
+   Mobile Sticky CTA
+-----------------------------------------*/
+.mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(13, 14, 21, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-sticky-cta.show {
+    transform: translateY(0);
+}
+
+.cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.original-price {
+    font-size: 0.85rem;
+    color: var(--text-light-muted);
+    text-decoration: line-through;
+}
+
+.discount-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+
+/*-----------------------------------------
    Responsive (Mobile View Readability)
 -----------------------------------------*/
 @media (max-width: 992px) {
@@ -1061,7 +1205,7 @@ h4 {
         font-size: 1rem;
     }
 
-    .genogram-illustration {
+    .genogram-transform-container {
         max-width: 400px;
         margin: 0 auto;
         aspect-ratio: auto;
