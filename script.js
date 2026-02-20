@@ -55,45 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // 4. Mobile Sticky CTA Visibility
-    const stickyCta = document.querySelector('.mobile-sticky-cta');
-    const heroSection = document.querySelector('.hero-section');
-    const applySection = document.querySelector('#apply');
-
-    if (stickyCta && heroSection) {
-        const ctaObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Show sticky CTA when Hero section is NOT fully visible
-                if (!entry.isIntersecting) {
-                    stickyCta.classList.add('show');
-                } else {
-                    stickyCta.classList.remove('show');
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.2 // Hide/Show when 20% of hero is visible
-        });
-
-        ctaObserver.observe(heroSection);
-
-        // Hide CTA when Apply section is visible to avoid double CTA friction
-        if (applySection) {
-            const applyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        stickyCta.classList.remove('show');
-                    } else if (window.scrollY > heroSection.offsetHeight * 0.8) {
-                        // Re-show if we scrolled back up but are still below hero
-                        stickyCta.classList.add('show');
-                    }
-                });
-            }, {
-                root: null,
-                threshold: 0.1
-            });
-            applyObserver.observe(applySection);
-        }
-    }
 });
