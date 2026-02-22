@@ -11,7 +11,7 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=13">
 </head>
 
 <body>
@@ -22,8 +22,8 @@
                     alt="마음토스 로고" class="logo-img">
             </a>
             <div class="nav-actions">
-                <a href="https://app.mindthos.com/" class="nav-link hide-mobile" target="_blank">마음토스 무료로 사용하기</a>
-                <a href="#apply" class="nav-cta hover-lift">신청하기</a>
+                <a href="https://app.mindthos.com/" class="nav-link hide-mobile" target="_blank">마음토스 무료로 체험하기</a>
+                <a href="#apply" class="nav-cta hover-lift">세미나 신청하기</a>
             </div>
         </div>
     </header>
@@ -83,12 +83,12 @@
             </div>
 
             <div class="container hero-content">
-                <div class="badge hover-lift">수강생 전원 3만 원 상당 마음토스 Plus 이용권 100% 증정</div>
+                <div class="badge hover-lift">3만 원 상당 마음토스 이용권 100% 증정</div>
                 <h2 class="sub-copy hide-mobile">제1차 조기 매진 신화! 평일과 주말, 원하는 날짜에 만나는 4시간 심화 워크숍</h2>
                 <h2 class="sub-copy display-mobile">제1차 조기 매진 신화! 4시간 심화 워크숍</h2>
-                <h1 class="main-title">상담의 본질은 내담자의 눈을 맞추는 것입니다.<br><span class="highlight">기록과 가계도는 마음토스에게 맡기세요.</span>
+                <h1 class="main-title">가족역동을 읽는 통찰을 배우고<br><span class="highlight">AI기술로 가계도를 완성합니다.</span>
                 </h1>
-                <a href="#apply" class="btn btn-primary btn-large hover-pulse">지금 바로 2차 세미나 신청하기</a>
+                <a href="#apply" class="btn btn-primary btn-large hover-pulse">지금 바로 세미나 신청하기</a>
             </div>
             <div class="hero-bg-glow"></div>
         </section>
@@ -96,29 +96,318 @@
         <!-- Section 2: Problem -->
         <section id="problem" class="problem-section reveal">
             <div class="container">
-                <h2 class="section-title">상담이 끝난 후, 선생님의 책상은 어떤 모습인가요?</h2>
+                <h2 class="section-title">가계도, 아직도 선 그리느라<br class="display-mobile"> 내담자의 눈을 놓치시나요?</h2>
                 <div class="problem-cards">
                     <div class="card problem-card hover-lift">
-                        <i class="ph ph-clock icon-large text-primary"></i>
-                        <p>상담 녹음 파일을 수십 번 멈춰가며<br> 축어록을 타이핑하는 지친 밤</p>
+                        <i class="ph ph-pen-nib icon-large text-primary"></i>
+                        <h3 class="problem-card-title">수작업의 한계</h3>
+                        <p>자리가 부족해 새로 덧그린 종이</p>
+                        <p class="problem-sub">기호를 쫓아가느라 끊기는 상담 흐름</p>
                     </div>
                     <div class="card problem-card hover-lift" style="transition-delay: 0.1s;">
-                        <i class="ph ph-files icon-large text-primary"></i>
-                        <p>다회기 상담 내용을 하나의<br> 사례 개념화로 엮어내기 벅찬 주말</p>
+                        <i class="ph ph-magnifying-glass icon-large text-primary"></i>
+                        <h3 class="problem-card-title">해석의 막막함</h3>
+                        <p>숨겨진 역동은 읽어내지 못한 답답함</p>
+                        <p class="problem-sub">서류로만 남고 끝나는 사례 개념화</p>
                     </div>
                     <div class="card problem-card hover-lift" style="transition-delay: 0.2s;">
-                        <i class="ph ph-git-merge icon-large text-primary"></i>
-                        <p>복잡한 가족사를 종이에 그리다<br> 흐름이 끊긴 면접 시간</p>
+                        <i class="ph ph-gear icon-large text-primary"></i>
+                        <h3 class="problem-card-title">도구의 불편함</h3>
+                        <p>선 하나 옮기며 씨름하는 주말</p>
+                        <p class="problem-sub">수정하기 벅찬 영어 기반 옛날 프로그램</p>
                     </div>
                 </div>
                 <div class="problem-conclusion reveal text-center">
-                    <p class="hide-mobile">우리는 내담자의 마음을 돌보는 치유자이지, 서류를 처리하는 행정가가 아닙니다.</p>
-                    <strong>소진되는 상담사를 위해, 가족상담의 거장과 AI 기술이 만났습니다.</strong>
+                    <p class="hide-mobile" style="margin-bottom: 5px; font-size: 1.1rem;">상담사는 그리는 사람이 아니라, <strong>역동을
+                            읽어내는 사람</strong>입니다.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2.5: AI Transition (SVG Animation) -->
+        <!-- Section 3: Why Genogram -->
+        <section id="why-genogram" class="why-genogram-section reveal">
+            <div class="container split-layout">
+                <div class="image-wrapper hover-float">
+                    <!-- Genogram CSS Illustration -->
+                    <div class="genogram-illustration fancy-wrapper">
+                        <svg viewBox="0 0 400 400" class="fancy-genogram" preserveAspectRatio="xMidYMid meet">
+                            <!-- Background Grid -->
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <circle cx="2" cy="2" r="1" fill="#E2E8F0" />
+                            </pattern>
+                            <rect width="100%" height="100%" fill="url(#grid)" />
+
+                            <!-- Dynamic Relations (Lines) -->
+
+                            <!-- Structural Genogram Lines (Base) -->
+                            <!-- Marriage Line (Father to Mother) -->
+                            <path d="M 120 100 L 276 100" stroke="#1E293B" stroke-width="1.5" fill="none" />
+                            <!-- Descent Line (Marriage to Child) -->
+                            <path d="M 200 100 L 200 276" stroke="#1E293B" stroke-width="1.5" fill="none" />
+
+                            <!-- Relationship Dynamics -->
+
+                            <!-- 1. 부부 갈등 (Marriage Conflict: Zigzag over base line) -->
+                            <path
+                                d="M 120 100 L 132 92 L 144 108 L 156 92 L 168 108 L 180 92 L 192 108 L 204 92 L 216 108 L 228 92 L 240 108 L 252 92 L 264 108 L 276 100"
+                                stroke="#EF4444" stroke-width="1.5" fill="none" class="conflict-pulse" />
+                            <text x="200" y="80" fill="#EF4444" font-size="12" font-weight="800"
+                                text-anchor="middle">갈등</text>
+
+                            <!-- 2. 아빠-자녀 융합 (Father-Child Enmeshment: 3 curved lines) -->
+                            <path d="M 100 130 Q 120 220 175 285" stroke="#44CE4B" stroke-width="1.5" fill="none" />
+                            <path d="M 92 125 Q 112 215 167 280" stroke="#44CE4B" stroke-width="1.5" fill="none" />
+                            <path d="M 108 135 Q 128 225 183 290" stroke="#44CE4B" stroke-width="1.5" fill="none" />
+                            <text x="110" y="240" fill="#44CE4B" font-size="12" font-weight="700">융합</text>
+
+                            <!-- 3. 엄마-자녀 단절 (Mother-Child Cut-off: curved line with two slashes) -->
+                            <path d="M 300 130 Q 280 220 225 285" stroke="#1E293B" stroke-width="1.5" fill="none" />
+                            <!-- Cut-off slashes in the middle of the curve -->
+                            <path d="M 270 200 L 286 216 M 260 210 L 276 226" stroke="#1E293B" stroke-width="1.5"
+                                fill="none" />
+                            <text x="290" y="240" fill="#1E293B" font-size="12" font-weight="700">단절됨</text>
+
+                            <!-- Nodes with Drop Shadows -->
+                            <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000"
+                                    flood-opacity="0.1" />
+                            </filter>
+
+                            <!-- Gen 1 Nodes -->
+                            <!-- Father -->
+                            <rect x="80" y="80" width="40" height="40" fill="#FFFFFF" stroke="#1E293B"
+                                stroke-width="2.5" filter="url(#nodeShadow)" class="fancy-node" />
+                            <!-- Mother -->
+                            <circle cx="300" cy="100" r="24" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"
+                                filter="url(#nodeShadow)" class="fancy-node" />
+
+                            <!-- Gen 2 Nodes -->
+                            <!-- Child (IP) -->
+                            <circle cx="200" cy="300" r="24" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="3"
+                                filter="url(#nodeShadow)" class="fancy-node ip-node" />
+                            <circle cx="200" cy="300" r="24" fill="none" stroke="#0EA5E9" stroke-width="2"
+                                class="fancy-pulse" />
+                            <text x="200" y="340" fill="#0EA5E9" font-size="12" font-weight="800"
+                                text-anchor="middle">IP</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title text-left">내담자의 문제가 자꾸만 제자리걸음이라면...</h2>
+
+                    <p class="hide-mobile">우울증, 부부 갈등, 자녀의 문제 행동. 상담실을 찾아오는 수많은 호소 문제들은 사실 빙산의 일각일 때가 많습니다. 증상은 한 개인에게
+                        나타나지만, 그 원인은 가족의 정서적 역동에 깊이 얽혀있습니다.</p>
+
+                    <p>가계도는 단순한 가족관계증명서가 아닙니다. 할머니의 억압된 불안이 어떤 삼각관계를 만들어 아이를 아프게 하는지 보여주는 <strong>가장 강력한 심리적
+                            X-ray</strong>입니다.</p>
+
+                    <p class="hide-mobile">지도가 없으면 복잡한 숲속에서 길을 잃습니다. 거대한 가족 시스템을 시각화하는 순간, 비로소 문제의 진짜 원인을 마주하게 됩니다.</p>
+
+                    <div class="quote-box">
+                        <i class="ph ph-quotes highlight-icon"></i>
+                        <p><em>'아, 제가 엄마의 불안을 똑같이 반복하고 있었군요.'</em><br>
+                            자신의 역사를 확인하는 시각적 통찰은 강력한 치유의 시작점입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3.1: Clinical Insights (Moved from 2.1 and redesigned to green theme) -->
+        <section id="clinical-insights" class="clinical-section reveal">
+            <div class="container">
+                <div class="clinical-header text-center">
+                    <h2 class="section-title">역동을 읽는 통찰을 배워나갑나다.<br>
+                        <span class="highlight">이인수 교수님의 사례 중심 심층 해석</span>
+                    </h2>
+                    <p class="sub-title">기호를 외우는 시간이 아닙니다. 내담자의 삶을 꿰뚫고 실제 상담에 적용하는 <strong
+                            style="color:var(--primary-color);">진짜 가계도</strong>를 배웁니다.</p>
+                </div>
+
+                <!-- Before & After Genogram SVG -->
+                <div class="ba-comparison">
+                    <div class="ba-card ba-before reveal">
+                        <div class="ba-label"><i class="ph-fill ph-eye-slash"></i> Before</div>
+                        <div class="ba-subtitle">단순한 뼈대 — 기호만 있는 가계도</div>
+                        <svg viewBox="0 0 400 280" class="ba-svg">
+                            <!-- Gen 1 Family 1-->
+                            <rect x="60" y="20" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#9CA3AF"
+                                stroke-width="2.5" />
+                            <circle cx="180" cy="40" r="20" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2.5" />
+                            <!-- Marriage -->
+                            <path d="M 100 40 L 160 40" stroke="#9CA3AF" stroke-width="2" fill="none" />
+                            <!-- Gen 1 Family 2-->
+                            <rect x="260" y="20" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#9CA3AF"
+                                stroke-width="2.5" />
+                            <circle cx="380" cy="40" r="20" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2.5" />
+                            <!-- Marriage -->
+                            <path d="M 300 40 L 360 40" stroke="#9CA3AF" stroke-width="2" fill="none" />
+
+                            <!-- Descent to Gen 2 -->
+                            <path d="M 130 40 L 130 100" stroke="#9CA3AF" stroke-width="2" fill="none" />
+                            <path d="M 330 40 L 330 80 L 230 80 L 230 100" stroke="#9CA3AF" stroke-width="2"
+                                stroke-linejoin="round" fill="none" />
+
+                            <!-- Gen 2 -->
+                            <rect x="110" y="100" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#9CA3AF"
+                                stroke-width="2.5" />
+                            <circle cx="230" cy="120" r="20" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2.5" />
+                            <!-- Marriage -->
+                            <path d="M 150 120 L 210 120" stroke="#9CA3AF" stroke-width="2" fill="none" />
+
+                            <!-- Descent to Gen 3 -->
+                            <path d="M 180 120 L 180 160" stroke="#9CA3AF" stroke-width="2" fill="none" />
+                            <!-- Branching to children -->
+                            <path d="M 150 160 L 210 160" stroke="#9CA3AF" stroke-width="2" fill="none" />
+                            <path d="M 150 160 L 150 200" stroke="#9CA3AF" stroke-width="2" fill="none" />
+                            <path d="M 210 160 L 210 200" stroke="#9CA3AF" stroke-width="2" fill="none" />
+
+                            <!-- Gen 3 -->
+                            <rect x="130" y="200" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#9CA3AF"
+                                stroke-width="2.5" />
+                            <circle cx="210" cy="220" r="20" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2.5" />
+
+                            <!-- Question mark overlay -->
+                            <text x="200" y="270" text-anchor="middle" fill="#D1D5DB" font-size="14"
+                                font-family="Pretendard" font-weight="600">선은 그렸는데… 뭘 읽어야 하지?</text>
+                        </svg>
+                    </div>
+
+                    <div class="ba-arrow-divider">
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </div>
+
+                    <div class="ba-card ba-after reveal">
+                        <div class="ba-label ba-label-after"><i class="ph-fill ph-magnifying-glass"></i> After</div>
+                        <div class="ba-subtitle" style="color:#047857;">임상적 해석 — 역동이 보이는 가계도</div>
+                        <svg viewBox="0 0 400 280" class="ba-svg">
+                            <!-- Gen 1 Family 1-->
+                            <rect x="60" y="20" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#1E293B"
+                                stroke-width="2.5" />
+                            <circle cx="180" cy="40" r="20" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" />
+                            <path d="M 100 40 L 160 40" stroke="#1E293B" stroke-width="2" fill="none" />
+
+                            <!-- Gen 1 Family 2-->
+                            <rect x="260" y="20" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#1E293B"
+                                stroke-width="2.5" />
+                            <circle cx="380" cy="40" r="20" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" />
+                            <path d="M 300 40 L 320 40 M 340 40 L 360 40" stroke="#1E293B" stroke-width="2"
+                                fill="none" />
+
+                            <!-- Descent to Gen 2 -->
+                            <path d="M 130 40 L 130 100" stroke="#1E293B" stroke-width="2" fill="none" />
+                            <path d="M 330 40 L 330 80 L 230 80 L 230 100" stroke="#1E293B" stroke-width="2"
+                                stroke-linejoin="round" fill="none" />
+
+                            <!-- Gen 2 -->
+                            <rect x="110" y="100" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#1E293B"
+                                stroke-width="2.5" />
+                            <circle cx="230" cy="120" r="20" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" />
+                            <path d="M 150 120 L 210 120" stroke="#1E293B" stroke-width="2" fill="none" />
+
+                            <!-- Descent to Gen 3 -->
+                            <path d="M 180 120 L 180 160" stroke="#1E293B" stroke-width="2" fill="none" />
+                            <path d="M 150 160 L 210 160" stroke="#1E293B" stroke-width="2" fill="none" />
+                            <path d="M 150 160 L 150 200" stroke="#1E293B" stroke-width="2" fill="none" />
+                            <path d="M 210 160 L 210 200" stroke="#1E293B" stroke-width="2" fill="none" />
+
+                            <!-- Gen 3 -->
+                            <rect x="130" y="200" width="40" height="40" rx="6" fill="#FFFFFF" stroke="#1E293B"
+                                stroke-width="2.5" />
+                            <circle cx="210" cy="220" r="20" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" />
+
+                            <!-- DYNAMICS -->
+                            <!-- 1. 갈등 (Conflict) -->
+                            <path d="M 105 32 L 115 48 L 125 32 L 135 48 L 145 32 L 155 48" stroke="#EF4444"
+                                stroke-width="2" fill="none" />
+                            <!-- 2. 단절 (Cutoff) -->
+                            <path d="M 324 32 L 316 48 M 334 32 L 326 48" stroke="#EF4444" stroke-width="2"
+                                fill="none" />
+                            <line x1="330" y1="40" x2="330" y2="80" stroke="#EF4444" stroke-width="2"
+                                stroke-dasharray="4" />
+                            <!-- 3. 융합 (Enmeshment) -->
+                            <path d="M 235 145 Q 240 180 220 215" stroke="#44CE4B" stroke-width="2" fill="none" />
+                            <path d="M 225 145 Q 230 180 210 215" stroke="#44CE4B" stroke-width="2" fill="none" />
+                            <path d="M 215 145 Q 220 180 200 215" stroke="#44CE4B" stroke-width="2" fill="none" />
+                            <!-- 4. 삼각화 (Triangulation) -->
+                            <path d="M 130 145 L 145 195 L 215 140 Z" stroke="#F59E0B" stroke-width="2"
+                                stroke-dasharray="4,4" fill="none" />
+
+                            <!-- Annotations -->
+                            <g font-family="Pretendard" font-size="10" font-weight="800">
+                                <text x="130" y="25" fill="#EF4444" text-anchor="middle">부부 갈등</text>
+                                <text x="330" y="25" fill="#EF4444" text-anchor="middle">정서적 단절</text>
+                                <text x="280" y="170" fill="#059669">엄마 불안 →</text>
+                                <text x="280" y="185" fill="#059669">딸에게 투사</text>
+                                <text x="80" y="170" fill="#F59E0B">자녀를 통한</text>
+                                <text x="80" y="185" fill="#F59E0B">삼각화</text>
+                            </g>
+
+                            <!-- Bottom text -->
+                            <text x="200" y="270" text-anchor="middle" fill="#047857" font-size="13"
+                                font-family="Pretendard" font-weight="700">세대 간 정서적 유산이 선명하게 보입니다</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3 Key Clinical Points -->
+                <div class="clinical-points">
+                    <div class="clinical-point-card reveal">
+                        <div class="point-number">01</div>
+                        <h3>증상 이면의 다세대 전수 과정 추적</h3>
+                        <p>우울, 불안, 부부 갈등 등 표면적인 호소 문제 아래에 조용히 흐르는 <strong>세대 간의 정서적 유산</strong>을 추적합니다. 융합과 정서적 단절이 어떤
+                            방식으로 대물림되는지 생생한 사례를 통해 선명하게 확인합니다.</p>
+                    </div>
+                    <div class="clinical-point-card reveal">
+                        <div class="point-number">02</div>
+                        <h3>교과서 밖의 실제 임상 사례 해독</h3>
+                        <p>이론서에 나오는 정형화된 가족이 아닙니다. 이인수 교수님의 <strong>실제 임상 사례</strong>를 바탕으로, 복잡하게 얽힌
+                            선들 사이에서 가족 역동의 핵심 패턴을 읽어내는 전문가의 시선을 전수합니다.</p>
+                    </div>
+                    <div class="clinical-point-card reveal">
+                        <div class="point-number">03</div>
+                        <h3>해석을 넘어선 치료적 개입 전략</h3>
+                        <p>가계도를 분석하는 것에서 멈추지 않습니다. 발견한 가족 체계의 문제를 내담자에게 <strong>안전하게 직면</strong>시키고, 핵심 질문을 던져
+                            스스로 통찰을 끌어내게 할 실질적인 개입 노하우를 다룹니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="comparison-section reveal">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 1rem;">복잡하고 불친절했던 가계도 프로그램, 이제 안녕히 계세요.</h2>
+                <p class="text-center sub-title" style="font-size: 1.2rem; color: var(--text-muted);">전 세계에서 가장 진보한, 오직
+                    한국 상담사만을 위한 가계도 솔루션.</p>
+
+                <div class="comparison-wrapper">
+                    <div class="compare-card old-way hover-lift">
+                        <div class="compare-header">기존 프로그램 (예: Genopro)</div>
+                        <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/Sample-Genopro.png"
+                            alt="Genopro">
+                        <ul class="compare-list">
+                            <li><strong>언어:</strong> 영어 중심의 불친절한 인터페이스</li>
+                            <li><strong>생성 방식:</strong> 일일이 클릭해서 뼈대부터 수동 조립</li>
+                            <li><strong>편집:</strong> 선 하나 옮기기도 벅찬 복잡한 조작감</li>
+                            <li><strong>출력:</strong> 깨지거나 촌스러운 문서 디자인</li>
+                        </ul>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="compare-card new-way hover-lift">
+                        <div class="compare-header">마음토스 가계도</div>
+                        <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/mindthos-genogram.png"
+                            alt="마음토스 가계도">
+                        <ul class="compare-list">
+                            <li><strong>언어:</strong> 100% 전면 한글화 및 한국 상담 현장 최적화</li>
+                            <li><strong>생성 방식:</strong> 내담자의 음성/텍스트만 넣으면 AI가 3초 만에 자동 완성</li>
+                            <li><strong>편집:</strong> 색상, 관계선, 가족 구성까지 클릭 몇 번으로 수정하는 직관적 UI</li>
+                            <li><strong>출력:</strong> 사례 개념화 보고서에 바로 쓸 수 있는 고화질 이미지 즉시 출력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3.6: AI Transition (SVG Animation, Moved from 2.5) -->
         <section id="ai-transition" class="ai-transition-section reveal">
             <div class="container text-center">
                 <h2 class="section-title">가계도, 이제 손으로 그리지 마세요.<br><span class="highlight">AI로 완성하세요.</span></h2>
@@ -291,90 +580,19 @@
             </div>
         </section>
 
-        <!-- Section 3: Why Genogram -->
-        <section id="why-genogram" class="why-genogram-section reveal">
-            <div class="container split-layout">
-                <div class="image-wrapper hover-float">
-                    <!-- Genogram CSS Illustration -->
-                    <div class="genogram-illustration fancy-wrapper">
-                        <svg viewBox="0 0 400 400" class="fancy-genogram" preserveAspectRatio="xMidYMid meet">
-                            <!-- Background Grid -->
-                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <circle cx="2" cy="2" r="1" fill="#E2E8F0" />
-                            </pattern>
-                            <rect width="100%" height="100%" fill="url(#grid)" />
-
-                            <!-- Dynamic Relations (Lines) -->
-
-                            <!-- Structural Genogram Lines (Base) -->
-                            <!-- Marriage Line (Father to Mother) -->
-                            <path d="M 120 100 L 276 100" stroke="#1E293B" stroke-width="1.5" fill="none" />
-                            <!-- Descent Line (Marriage to Child) -->
-                            <path d="M 200 100 L 200 276" stroke="#1E293B" stroke-width="1.5" fill="none" />
-
-                            <!-- Relationship Dynamics -->
-
-                            <!-- 1. 부부 갈등 (Marriage Conflict: Zigzag over base line) -->
-                            <path
-                                d="M 120 100 L 132 92 L 144 108 L 156 92 L 168 108 L 180 92 L 192 108 L 204 92 L 216 108 L 228 92 L 240 108 L 252 92 L 264 108 L 276 100"
-                                stroke="#EF4444" stroke-width="1.5" fill="none" class="conflict-pulse" />
-                            <text x="200" y="80" fill="#EF4444" font-size="12" font-weight="800"
-                                text-anchor="middle">갈등</text>
-
-                            <!-- 2. 아빠-자녀 융합 (Father-Child Enmeshment: 3 curved lines) -->
-                            <path d="M 100 130 Q 120 220 175 285" stroke="#44CE4B" stroke-width="1.5" fill="none" />
-                            <path d="M 92 125 Q 112 215 167 280" stroke="#44CE4B" stroke-width="1.5" fill="none" />
-                            <path d="M 108 135 Q 128 225 183 290" stroke="#44CE4B" stroke-width="1.5" fill="none" />
-                            <text x="110" y="240" fill="#44CE4B" font-size="12" font-weight="700">융합</text>
-
-                            <!-- 3. 엄마-자녀 단절 (Mother-Child Cut-off: curved line with two slashes) -->
-                            <path d="M 300 130 Q 280 220 225 285" stroke="#1E293B" stroke-width="1.5" fill="none" />
-                            <!-- Cut-off slashes in the middle of the curve -->
-                            <path d="M 270 200 L 286 216 M 260 210 L 276 226" stroke="#1E293B" stroke-width="1.5"
-                                fill="none" />
-                            <text x="290" y="240" fill="#1E293B" font-size="12" font-weight="700">단절됨</text>
-
-                            <!-- Nodes with Drop Shadows -->
-                            <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000"
-                                    flood-opacity="0.1" />
-                            </filter>
-
-                            <!-- Gen 1 Nodes -->
-                            <!-- Father -->
-                            <rect x="80" y="80" width="40" height="40" fill="#FFFFFF" stroke="#1E293B"
-                                stroke-width="2.5" filter="url(#nodeShadow)" class="fancy-node" />
-                            <!-- Mother -->
-                            <circle cx="300" cy="100" r="24" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"
-                                filter="url(#nodeShadow)" class="fancy-node" />
-
-                            <!-- Gen 2 Nodes -->
-                            <!-- Child (IP) -->
-                            <circle cx="200" cy="300" r="24" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="3"
-                                filter="url(#nodeShadow)" class="fancy-node ip-node" />
-                            <circle cx="200" cy="300" r="24" fill="none" stroke="#0EA5E9" stroke-width="2"
-                                class="fancy-pulse" />
-                            <text x="200" y="340" fill="#0EA5E9" font-size="12" font-weight="800"
-                                text-anchor="middle">IP</text>
-                        </svg>
-                    </div>
-                </div>
-                <div class="text-content">
-                    <h2 class="section-title text-left">내담자의 문제가 자꾸만 제자리걸음인 것 같나요?</h2>
-
-                    <p class="hide-mobile">우울증, 부부 갈등, 자녀의 문제 행동. 상담실을 찾아오는 수많은 호소 문제들은 사실 빙산의 일각일 때가 많습니다. 증상은 한 개인에게
-                        나타나지만, 그 원인은 가족의 정서적 역동에 깊이 얽혀있습니다.</p>
-
-                    <p>가계도는 단순한 가족관계증명서가 아닙니다. 할머니의 억압된 불안이 어떤 삼각관계를 만들어 아이를 아프게 하는지 보여주는 <strong>가장 강력한 심리적
-                            X-ray</strong>입니다.</p>
-
-                    <p class="hide-mobile">지도가 없으면 복잡한 숲속에서 길을 잃습니다. 거대한 가족 시스템을 시각화하는 순간, 비로소 문제의 진짜 원인을 마주하게 됩니다.</p>
-
-                    <div class="quote-box">
-                        <i class="ph ph-quotes highlight-icon"></i>
-                        <p><em>'아, 제가 엄마의 불안을 똑같이 반복하고 있었군요.'</em><br>
-                            자신의 역사를 확인하는 시각적 통찰은 강력한 치유의 시작점입니다.</p>
-                    </div>
+        <!-- Section 3.8: Auto Generation Highlight -->
+        <section id="auto-genogram" class="auto-genogram-section reveal">
+            <div class="container text-center">
+                <h2 class="section-title" style="margin-bottom: 1rem;">마우스 클릭 한 번에, 진정한 자동 완성의 기적</h2>
+                <p class="sub-title"
+                    style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;">
+                    "어떻게 그리지?"에 대한 고민은 이제 AI에게 맡기세요.<br>
+                    상담 내용을 업로드하기만 하면, 마음토스가 알아서 분석하고 단 3초 만에 가계도를 완성합니다.
+                </p>
+                <div class="gif-wrapper hover-lift-slight">
+                    <!-- GIF with styling -->
+                    <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/Genogram-auto.gif"
+                        alt="마음토스 자동 가계도 생성" class="feature-gif shadow-lg rounded-xl">
                 </div>
             </div>
         </section>
@@ -382,35 +600,141 @@
         <!-- Section 4: Social Proof -->
         <section id="social-proof" class="social-proof-section reveal">
             <div class="container">
-                <h2 class="section-title">1차 세미나 만족도 조사 결과, 지인 추천 의향 100%</h2>
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <div class="card review-card hover-lift">
-                            <div class="stars">
-                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
-                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
-                                    class="ph-fill ph-star"></i>
+                <h2 class="section-title">
+                    1차 세미나 만족도 조사 결과, <br class="display-mobile">
+                    <span class="highlight-text-purple">지인 추천 의향 100%</span>
+                </h2>
+                <div class="carousel-wrapper" id="review-carousel-wrapper">
+                    <button class="carousel-nav prev" id="review-prev" aria-label="이전 후기"><i
+                            class="ph-bold ph-caret-left"></i></button>
+                    <button class="carousel-nav next" id="review-next" aria-label="다음 후기"><i
+                            class="ph-bold ph-caret-right"></i></button>
+                    <div class="carousel-container" id="review-carousel">
+                        <div class="carousel-track" id="review-track">
+                            <div class="card review-card hover-lift">
+                                <i class="ph-fill ph-quotes watermark-quote"></i>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="review-text">"수기로 30분 걸리던 가계도가 <span class="review-highlight">3분 만에
+                                        완성</span>되는 걸
+                                    보고 소름이 돋았습니다."</p>
+                                <div class="review-author-block">
+                                    <div class="author-avatar"><i class="ph-fill ph-user"></i></div>
+                                    <p class="review-author">- 서울 OO구 가족센터 소속 상담사</p>
+                                </div>
                             </div>
-                            <p class="review-text">"수기로 30분 걸리던 가계도가 3분 만에 완성되는 걸 보고 소름이 돋았습니다."</p>
-                            <p class="review-author">- 서울 OO구 가족센터 소속 상담사</p>
+                            <div class="card review-card hover-lift" style="transition-delay: 0.1s;">
+                                <i class="ph-fill ph-quotes watermark-quote"></i>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="review-text">"이인수 교수님의 심층 해석은 대학원 교과서에서는 절대 배울 수 없는 <span
+                                        class="review-highlight">생생한 통찰</span>이었습니다."</p>
+                                <div class="review-author-block">
+                                    <div class="author-avatar"><i class="ph-fill ph-student"></i></div>
+                                    <p class="review-author">- 7년차 프리랜서 상담사 (2급)</p>
+                                </div>
+                            </div>
+                            <div class="card review-card hover-lift" style="transition-delay: 0.2s;">
+                                <i class="ph-fill ph-quotes watermark-quote"></i>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="review-text">"AI가 제 상담을 분석하고 슈퍼비전까지 해주는 경험, <span class="review-highlight">정말
+                                        신세계네요!</span>"</p>
+                                <div class="review-author-block">
+                                    <div class="author-avatar"><i class="ph-fill ph-building-office"></i></div>
+                                    <p class="review-author">- 대학 학생상담센터 전임상담원</p>
+                                </div>
+                            </div>
+                            <div class="card review-card hover-lift" style="transition-delay: 0.3s;">
+                                <i class="ph-fill ph-quotes watermark-quote"></i>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="review-text">"상담 주기를 기록하는 시간보다 <span class="review-highlight">내담자에게 집중하는
+                                        시간</span>이 훨씬 늘어났습니다."</p>
+                                <div class="review-author-block">
+                                    <div class="author-avatar"><i class="ph-fill ph-clock-user"></i></div>
+                                    <p class="review-author">- 15년차 상담심리전문가</p>
+                                </div>
+                            </div>
+                            <div class="card review-card hover-lift" style="transition-delay: 0.4s;">
+                                <i class="ph-fill ph-quotes watermark-quote"></i>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="review-text">"컴퓨터가 어려웠던 저도 <span class="review-highlight">몇 번의 클릭만으로</span>
+                                    훌륭한
+                                    가계도를 만들 수 있어 감동했습니다."</p>
+                                <div class="review-author-block">
+                                    <div class="author-avatar"><i class="ph-fill ph-desktop"></i></div>
+                                    <p class="review-author">- 복지관 근무 중인 시니어 상담사</p>
+                                </div>
+                            </div>
+                            <div class="card review-card hover-lift" style="transition-delay: 0.5s;">
+                                <i class="ph-fill ph-quotes watermark-quote"></i>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="review-text">"가계도를 보여드리는 것만으로도 내담자가 <span class="review-highlight">자신의 가족 패턴을
+                                        스스로
+                                        발견</span>하는 모습이 인상적이었습니다."</p>
+                                <div class="review-author-block">
+                                    <div class="author-avatar"><i class="ph-fill ph-users-three"></i></div>
+                                    <p class="review-author">- 청소년 상담 센터 소장</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card review-card hover-lift" style="transition-delay: 0.1s;">
-                            <div class="stars">
-                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
-                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
-                                    class="ph-fill ph-star"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4.5: Visual Proof 1 -->
+        <section id="visual-proof-1" class="gallery-section reveal" style="background: var(--bg-ivory);">
+            <div class="container text-center">
+                <h2 class="section-title" style="margin-bottom: 2rem;">빈자리가 없었던 1차 세미나의 뜨거운 열기</h2>
+                <div class="carousel-wrapper" id="gallery-carousel-wrapper">
+                    <button class="carousel-nav prev" id="gallery-prev" aria-label="이전 사진"><i
+                            class="ph-bold ph-caret-left"></i></button>
+                    <button class="carousel-nav next" id="gallery-next" aria-label="다음 사진"><i
+                            class="ph-bold ph-caret-right"></i></button>
+                    <div class="carousel-container gallery-container" id="gallery-carousel">
+                        <div class="carousel-track gallery-track" id="gallery-track">
+                            <div class="gallery-slide">
+                                <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/1st-seminar-1.jpg"
+                                    alt="1차 세미나 현장 1">
                             </div>
-                            <p class="review-text">"이인수 교수님의 심층 해석은 대학원 교과서에서는 절대 배울 수 없는 생생한 통찰이었습니다."</p>
-                            <p class="review-author">- 7년차 프리랜서 상담사 (2급)</p>
-                        </div>
-                        <div class="card review-card hover-lift" style="transition-delay: 0.2s;">
-                            <div class="stars">
-                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
-                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
-                                    class="ph-fill ph-star"></i>
+                            <div class="gallery-slide">
+                                <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/1st-seminar-2.jpg"
+                                    alt="1차 세미나 현장 2">
                             </div>
-                            <p class="review-text">"AI가 제 상담을 분석하고 슈퍼비전까지 해주는 경험, 정말 신세계네요!"</p>
-                            <p class="review-author">- 대학 학생상담센터 전임상담원</p>
+                            <div class="gallery-slide">
+                                <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/1st-seminar-3.jpg"
+                                    alt="1차 세미나 현장 3">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/1st-seminar-4.jpg"
+                                    alt="1차 세미나 현장 4">
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/1st-seminar-5.jpg"
+                                    alt="1차 세미나 현장 5">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -432,7 +756,7 @@
                             <h3>가계도, 가족 역동을 읽는 지도 (90분)</h3>
                             <div class="lecturer hover-lift">
                                 <i class="ph-fill ph-chalkboard-teacher"></i>
-                                <span><strong>이인수 교수</strong> (가계도4판 공번역자 / 전 한국상담학회 부부가족상담분과 회장)</span>
+                                <span><strong>이인수 교수</strong> (가계도4판 공역 / 전 한국상담학회 부부가족상담분과 회장)</span>
                             </div>
                             <p>단순히 기호를 외우는 것을 넘어, 가족 체계 내의 불안과 다세대 전수 과정을 읽어내는 심층 해석 능력을 기릅니다.</p>
                         </div>
@@ -486,6 +810,68 @@
             </div>
         </section>
 
+        <!-- Section 5.5: Instructors -->
+        <section id="instructors" class="instructors-section reveal"
+            style="background: var(--bg-ivory); padding: 100px 0;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h2 class="section-title">이론의 뼈대와 기술의 혁신을 연결하는 두 명의 안내자</h2>
+                    <p class="sub-title" style="font-size: 1.2rem; color: var(--text-muted);">가족상담의 정통성을 잇는 임상가와, 상담사의
+                        행정을 덜어내는 IT 기획자가 함께합니다.</p>
+                </div>
+
+                <div class="instructors-grid">
+                    <!-- Instructor 1 -->
+                    <div class="instructor-card hover-lift-slight">
+                        <div class="instructor-header">
+                            <h3 class="instructor-name">이인수 교수</h3>
+                            <p class="instructor-role">가족상담의 본질을 연구하고 현장에 나누는 학자이자 임상가</p>
+                        </div>
+                        <p class="instructor-desc">
+                            가계도를 고안한 모니카 맥골드릭, 가족체계이론의 머레이 보웬, 구조적 가족치료의 살바도르 미누친. 가족상담의 기초를 세운 기관들의 트레이닝 과정을 직접 수료하며
+                            정통성을 깊이 있게 연구해 왔습니다. 화려한 기교보다는 수십 년간 축적된 단단한 임상 경험을 바탕으로, 이론이 실제 상담실에서 어떻게 치유의 지도로 쓰일 수 있는지
+                            명확하게 전달합니다.
+                        </p>
+                        <div class="instructor-history">
+                            <h4>주요 약력</h4>
+                            <ul>
+                                <li>심리상담연구소 앤아더라이프 대표</li>
+                                <li>(전) 한국상담학회 부부가족상담분과학회 11대 회장</li>
+                                <li>(전) 상명대 복지상담대학원 가족상담치료학과 교수</li>
+                                <li>University of Pennsylvania, Clinical Social Work (MSW)</li>
+                                <li>전문영역 수련감독자 및 부부가족상담 슈퍼바이저</li>
+                                <li>M. McGoldrick, Bowen Center, Minuchin Center 트레이닝 수료</li>
+                                <li>주요 저서/역서: 보웬이론의 비밀, 한국 부부가족상담 핸드북 외 다수</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Instructor 2 -->
+                    <div class="instructor-card hover-lift-slight">
+                        <div class="instructor-header">
+                            <h3 class="instructor-name">강호남 대표</h3>
+                            <p class="instructor-role">상담사의 무거운 행정을 기술로 덜어내는 기획자</p>
+                        </div>
+                        <p class="instructor-desc">
+                            글로벌 컨설팅 펌과 누적 120억 투자를 유치한 AI 스타트업을 거치며 탄탄한 기술 기획력을 쌓았습니다. 현재는 상담심리학을 깊이 있게 수련하며, 상담 현장에서
+                            마주하는 행정적 고충과 페인포인트를 직접 해결하고자 마음토스를 개발했습니다. 기술이 상담을 대체하는 것이 아니라, 상담사가 내담자의 마음을 돌보는 본질에만 집중할 수
+                            있도록 돕는 완벽한 파트너를 만듭니다.
+                        </p>
+                        <div class="instructor-history">
+                            <h4>주요 약력</h4>
+                            <ul>
+                                <li>마인드풀랩스 주식회사 대표 (마음토스 기획 및 총괄)</li>
+                                <li>고려대학교 심리융합과학대학원 임상 및 상담심리 전공</li>
+                                <li>연세대학교 경영학 학사</li>
+                                <li>(전) AI 스타트업 (주)튜링 부대표</li>
+                                <li>(전) 글로벌 투자은행 및 전략 컨설팅 펌 근무</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 6: Target -->
         <section id="target" class="target-section reveal">
             <div class="container">
@@ -511,6 +897,51 @@
             </div>
         </section>
 
+        <!-- Section 6.5: Benefits -->
+        <section id="benefits" class="benefits-section reveal">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 1rem;">오직 2차 심화 워크숍 수료자에게만 주어지는 3가지 독점 혜택
+                </h2>
+                <p class="text-center sub-title">세미나가 끝난 후에도 선생님의 성장은 계속됩니다.</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card hover-lift">
+                        <div class="benefit-icon text-primary"><i class="ph ph-book-open"></i></div>
+                        <h3>혜택 1. 지식의 소장</h3>
+                        <p>이인수 교수의 <strong>[가계도 실전 사례 분석]</strong> 강의 PDF 제공</p>
+                        <p class="benefit-desc">세미나에서 다룬 핵심 이론과 다세대 전수 과정, 가족 패턴 분석의 노하우가 담긴 교안을 영구 소장하실 수 있습니다.</p>
+                    </div>
+                    <div class="benefit-card highlight-benefit hover-glow">
+                        <div class="benefit-icon"><i class="ph-fill ph-sparkle"></i></div>
+                        <h3 class="highlight-text-gold">혜택 2. 전문가의 특권</h3>
+                        <p>마음토스 <strong>[가계도 심층 분석 보고서]</strong> 생성 자격 부여</p>
+                        <p class="benefit-desc">마치 MMPI 검사처럼, 마음토스의 강력한 AI 심층 분석 리포트 기능은 오직 전문 워크숍을 이수한 '자격 있는 상담사'에게만
+                            오픈됩니다. 가장 먼저 그 특권을 선점하세요.</p>
+                    </div>
+                    <div class="benefit-card hover-lift">
+                        <div class="benefit-icon text-primary"><i class="ph ph-certificate"></i></div>
+                        <h3>혜택 3. 경력의 증명</h3>
+                        <p>한국상담학회 교육연수 4시간 인정 & 공식 수료증 발급</p>
+                        <p class="benefit-desc">4시간의 밀도 높은 학습을 증명하는 마인드풀랩스 공식 수료증이 발급되며, 한국상담학회 교육연수 시간(4시간)으로 인정받아 자격
+                            유지 및 승급에 활용하실 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6.6: Visual Proof 2 -->
+        <section id="visual-proof-2" class="space-section reveal" style="padding: 100px 0;">
+            <div class="container text-center">
+                <h2 class="section-title" style="margin-bottom: 2rem;">더 쾌적하고 완벽한 실습을 위해, 성수동 상상플래닛으로 모십니다.</h2>
+                <div class="gallery-grid">
+                    <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/space_pic1.png"
+                        alt="상상플래닛 라운지" class="gallery-img hover-lift">
+                    <img src="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/imgViewer.jpg"
+                        alt="상상플래닛 강의실" class="gallery-img hover-lift">
+                </div>
+            </div>
+        </section>
+
         <!-- Section 7: CTA & Info -->
         <section id="apply" class="apply-section reveal">
             <div class="container">
@@ -531,12 +962,36 @@
                                 <td>서울시 성동구 뚝섬로 13길 38, KT&G 상상플래닛 3층 (뚝섬역, 성수역 인근)</td>
                             </tr>
                             <tr>
+                                <th>주차 안내</th>
+                                <td>건물 내 주차가 불가하므로 가급적 <strong>대중교통(성수역 도보 7분)</strong> 이용을 적극 권장합니다. 차량 이용 시 인근 유료
+                                    민영주차장을 개별적으로 이용해 주셔야 합니다.</td>
+                            </tr>
+                            <tr>
                                 <th>참가비</th>
-                                <td>100,000원</td>
+                                <td><strong style="font-size:1.2rem;">100,000원</strong></td>
+                            </tr>
+                            <tr>
+                                <th>입금 계좌</th>
+                                <td>
+                                    <strong>우리은행 1005-104-743860</strong><br>
+                                    <span style="color: var(--text-muted);">마인드풀랩스(주)</span>
+                                </td>
                             </tr>
                             <tr>
                                 <th>수강 혜택</th>
-                                <td><span class="highlight-text pulse-text">마음토스 Plus 이용권 전원 증정 (3만 원 상당)</span></td>
+                                <td>
+                                    <ul class="benefit-list">
+                                        <li><i class="ph-fill ph-gift" style="color: var(--primary-color);"></i>
+                                            <strong>마음토스 Plus 3만 원 이용권</strong> (전원 증정)
+                                        </li>
+                                        <li><i class="ph-fill ph-file-text" style="color: var(--primary-color);"></i> 심층
+                                            보고서 생성 자격</li>
+                                        <li><i class="ph-fill ph-book-open" style="color: var(--primary-color);"></i> 강의
+                                            PDF 교안</li>
+                                        <li><i class="ph-fill ph-certificate" style="color: var(--primary-color);"></i>
+                                            수료증 및 한국상담학회 연수 4시간 인정</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
                                 <th>준비물</th>
@@ -544,23 +999,16 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="form-container">
+                        <a href="https://forms.gle/hvZBFJxVhsf4NQyd7" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary btn-full hover-pulse"
+                            style="display: block; text-align: center; font-size: 1.1rem; padding: 18px 24px;">지금 바로 2차
+                            워크숍
+                            신청하기</a>
+                    </div>
                 </div>
 
-                <div class="form-container hover-lift-slight">
-                    <h3>세미나 신청하기</h3>
-                    <form class="apply-form" onsubmit="event.preventDefault(); alert('결제 페이지로 이동합니다.');">
-                        <div class="form-group">
-                            <label for="session">희망 회차 선택</label>
-                            <select id="session" required>
-                                <option value="" disabled selected>선택해주세요</option>
-                                <option value="1">1회차: 3월 14일(토) 14:00</option>
-                                <option value="2">2회차: 3월 19일(목) 14:00</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full hover-pulse">2차 워크숍 예약하기 (마감
-                            임박)</button>
-                    </form>
-                </div>
+
             </div>
         </section>
     </main>
@@ -580,7 +1028,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 
 </html>

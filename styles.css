@@ -134,6 +134,39 @@ h4 {
     animation: pulseTextOpacity 2s infinite alternate;
 }
 
+/* Auto-Genogram GIF Section */
+.auto-genogram-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg-white) 0%, rgba(139, 92, 246, 0.03) 100%);
+}
+
+.badge-purple {
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid #8B5CF6;
+    color: #8B5CF6;
+}
+
+.gif-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.feature-gif {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg);
+}
+
 @keyframes floatElement {
 
     0%,
@@ -559,6 +592,22 @@ h4 {
 .problem-card p {
     font-size: 1.1rem;
     font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.problem-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.problem-sub {
+    font-size: 0.95rem !important;
+    color: var(--text-muted);
+    font-weight: 400 !important;
+    line-height: 1.6;
+    margin-bottom: 0 !important;
 }
 
 .problem-conclusion {
@@ -943,52 +992,234 @@ h4 {
 }
 
 /*-----------------------------------------
-   Social Proof Section 
+   Gallery Sections (Visual Proof)
+-----------------------------------------*/
+.gallery-section,
+.space-section {
+    padding: 100px 0;
+}
+
+.gallery-container {
+    padding: 20px 0;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+.gallery-track {
+    align-items: stretch;
+    gap: 20px;
+}
+
+/* Fixed-width wrapper prevents flex from stretching the image */
+.gallery-slide {
+    width: 420px;
+    flex-shrink: 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.gallery-slide:hover {
+    transform: scale(1.02);
+}
+
+/* Image fills 100% of the wrapper, height is auto = natural aspect ratio */
+.gallery-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/*-----------------------------------------
+   Carousel Shared Refinements
+-----------------------------------------*/
+.carousel-wrapper {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    /* Clip the track but let buttons overlay */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.carousel-nav:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: -20px;
+}
+
+.carousel-nav.next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .carousel-nav {
+        display: none;
+        /* Hide on small screens where swipe is better */
+    }
+}
+
+/*-----------------------------------------
+   Social Proof Section Refinements
 -----------------------------------------*/
 .social-proof-section {
     padding: 100px 0;
-    background: var(--bg-white);
+    /* Soft pastel background to make cards pop */
+    background: linear-gradient(135deg, #F8FAFC 0%, rgba(139, 92, 246, 0.03) 100%);
+}
+
+.social-proof-section .section-title {
+    margin-bottom: 3rem;
+    line-height: 1.4;
+}
+
+.highlight-text-purple {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .carousel-container {
     width: 100%;
-    overflow-x: auto;
-    padding: 20px 0;
-    scroll-behavior: smooth;
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .carousel-track {
     display: flex;
     gap: 30px;
     width: max-content;
+    will-change: transform;
 }
 
 .review-card {
-    width: 320px;
+    width: 380px;
+    /* Slightly wider to accommodate avatars nicely */
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: var(--transition);
+    opacity: 0.9;
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    /* For watermark */
+}
+
+/* Watermark */
+.watermark-quote {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 8rem;
+    color: rgba(139, 92, 246, 0.05);
+    z-index: 0;
+    transform: rotate(10deg);
+}
+
+.review-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+.review-card.active {
+    opacity: 1;
+    transform: scale(1.05);
+    border-color: var(--primary-color);
 }
 
 .stars {
     color: #FFD700;
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-}
-
-.review-text {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--text-main);
+    font-size: 1.4rem;
     margin-bottom: 20px;
 }
 
+.review-text {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* Keyword Highlighting */
+.review-highlight {
+    background: linear-gradient(120deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 88%;
+    font-weight: 700;
+    color: #4C1D95;
+    /* Deep purple */
+    padding: 0 4px;
+}
+
+/* Author Avatar Block */
+.review-author-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #8B5CF6;
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
 .review-author {
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     color: var(--text-muted);
-    text-align: right;
 }
 
 /*-----------------------------------------
@@ -1138,6 +1369,119 @@ h4 {
 }
 
 /*-----------------------------------------
+   Instructor Section (Section 5.5)
+-----------------------------------------*/
+.instructors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.instructor-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.instructor-header {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.instructor-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.instructor-role {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.instructor-desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.instructor-history {
+    margin-top: auto;
+    background: var(--bg-ivory);
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.instructor-history h4 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.instructor-history h4::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 18px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.instructor-history ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instructor-history li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 14px;
+    line-height: 1.5;
+}
+
+.instructor-history li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.instructor-history li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .instructors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .instructor-card {
+        padding: 30px 20px;
+    }
+}
+
+/*-----------------------------------------
    Target Section 
 -----------------------------------------*/
 .target-section {
@@ -1265,6 +1609,245 @@ h4 {
 }
 
 /*-----------------------------------------
+   Comparison Section 
+-----------------------------------------*/
+.comparison-section {
+    padding: 100px 0;
+    background: var(--bg-white);
+}
+
+.comparison-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.compare-card {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.compare-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.compare-card.old-way {
+    background: #FAFAFA;
+    border-color: #E2E8F0;
+}
+
+.compare-card.new-way {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(68, 206, 75, 0.15);
+}
+
+.compare-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.old-way .compare-header {
+    color: var(--text-muted);
+}
+
+.new-way .compare-header {
+    color: var(--primary-color);
+}
+
+.compare-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.compare-list {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.compare-list li {
+    margin-bottom: 16px;
+    padding-left: 24px;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.old-way .compare-list li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: #EF4444;
+    font-weight: bold;
+}
+
+.new-way .compare-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.vs-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #1A1A1A;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+    border: 4px solid var(--bg-white);
+}
+
+/*-----------------------------------------
+   Gallery Sections (Visual Proof)
+-----------------------------------------*/
+.gallery-section,
+.space-section {
+    padding: 100px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+/*-----------------------------------------
+   Benefits Section 
+-----------------------------------------*/
+.benefits-section {
+    padding: 100px 0;
+    background: var(--bg-ivory);
+}
+
+.benefits-section .sub-title {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.benefit-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+.benefit-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.benefit-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.benefit-desc {
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0 !important;
+    flex-grow: 1;
+}
+
+.highlight-benefit {
+    border: 2px solid #8B5CF6;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, white 100%);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.highlight-benefit .benefit-icon {
+    color: #8B5CF6;
+}
+
+.highlight-text-gold {
+    background: linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900 !important;
+    font-size: 1.5rem !important;
+}
+
+/*-----------------------------------------
+   Responsive Tweaks for New Sections
+-----------------------------------------*/
+@media (max-width: 992px) {
+    .vs-badge {
+        display: none;
+    }
+
+    .comparison-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*-----------------------------------------
    Responsive (Mobile View Readability)
 -----------------------------------------*/
 @media (max-width: 992px) {
@@ -1288,6 +1871,185 @@ h4 {
         left: 20%;
         width: 60%;
     }
+}
+
+/*-----------------------------------------
+   CTA Section Enhancements
+-----------------------------------------*/
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.benefit-list li i {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.apply-flow-note {
+    background: rgba(139, 92, 246, 0.06);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.6;
+}
+
+/*-----------------------------------------
+   Clinical Insights Section (3.1)
+-----------------------------------------*/
+.clinical-section {
+    padding: 100px 0;
+    /* Clean subtle green/gray bg */
+    background: linear-gradient(180deg, #FAFBFF 0%, #F0FDF4 100%);
+}
+
+.clinical-header {
+    margin-bottom: 60px;
+}
+
+/* Before & After Comparison */
+.ba-comparison {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 60px;
+    justify-content: center;
+}
+
+.ba-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    flex: 1;
+    max-width: 480px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.ba-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.ba-before {
+    border: 2px solid #E5E7EB;
+}
+
+.ba-after {
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    /* Emerald border */
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
+}
+
+.ba-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    background: #F3F4F6;
+    border-radius: 20px;
+}
+
+.ba-label-after {
+    color: #059669;
+    /* Emerald text */
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.ba-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.ba-svg {
+    width: 100%;
+    height: auto;
+}
+
+.ba-arrow-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+}
+
+/* Clinical Point Cards */
+.clinical-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.clinical-point-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.clinical-point-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.point-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    /* Soft green gradient */
+    background: linear-gradient(135deg, rgba(68, 206, 75, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+    color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.clinical-point-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.clinical-point-card p {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    line-height: 1.75;
 }
 
 @media (max-width: 768px) {
@@ -1415,5 +2177,30 @@ h4 {
 
     .form-container {
         padding: 20px;
+    }
+
+    /* Clinical Insights responsive */
+    .ba-comparison {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ba-card {
+        max-width: 100%;
+    }
+
+    .ba-arrow-divider {
+        transform: rotate(90deg);
+        padding: 10px 0;
+    }
+
+    .clinical-points {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-slide {
+        width: 300px;
     }
 }
