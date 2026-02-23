@@ -1264,13 +1264,15 @@ h4 {
 
 .timeline-marker {
     position: absolute;
-    left: 15px;
-    top: 0;
-    width: 50px;
-    height: 50px;
+    left: 41px;
+    transform: translateX(-50%);
+    top: 5px;
+    min-width: 60px;
+    height: 40px;
+    padding: 0 12px;
     background: var(--primary-gradient);
     color: white;
-    border-radius: 50%;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1278,6 +1280,7 @@ h4 {
     font-size: 0.9rem;
     box-shadow: 0 0 0 5px var(--bg-ivory);
     z-index: 2;
+    white-space: nowrap;
 }
 
 .timeline-content h3 {
