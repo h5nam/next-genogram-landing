@@ -2,6 +2,33 @@
 <html lang="ko">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJJWPD5C6F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JJJWPD5C6F');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1669464734483331');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1669464734483331&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가족 역동을 읽는 통찰, Next Genogram 심화 워크숍 | 마음토스</title>
@@ -42,7 +69,7 @@
             </a>
             <div class="nav-actions">
                 <a href="https://app.mindthos.com/" class="nav-link hide-mobile" target="_blank">마음토스 무료로 체험하기</a>
-                <a href="https://forms.gle/hvZBFJxVhsf4NQyd7" class="nav-cta hover-lift" target="_blank">워크숍 신청하기</a>
+                <a href="#apply" class="nav-cta hover-lift" onclick="gtag('event', 'workshop_apply_click', {event_category: 'engagement', event_label: 'nav_cta'});">워크숍 신청하기</a>
             </div>
         </div>
     </header>
@@ -107,7 +134,7 @@
                 <h2 class="sub-copy display-mobile">제1차 조기 매진 신화! 4시간 심화 워크숍</h2>
                 <h1 class="main-title">가족역동을 읽는 통찰을 배우고<br><span class="highlight">AI기술로 가계도를 완성합니다.</span>
                 </h1>
-                <a href="#apply" class="btn btn-primary btn-large hover-pulse">지금 바로 워크숍 신청하기</a>
+                <a href="#apply" class="btn btn-primary btn-large hover-pulse" onclick="gtag('event', 'workshop_apply_click', {event_category: 'engagement', event_label: 'hero_cta'});">지금 바로 워크숍 신청하기</a>
             </div>
             <div class="hero-bg-glow"></div>
         </section>
@@ -955,7 +982,7 @@
 
                     <!-- Right: Content -->
                     <div class="report-content reveal fade-left">
-                        <span class="badge-small pulse-soft">3월 중순 공식 출시 예정</span>
+                        <span class="badge-small pulse-soft">워크숍 수료자만 이용 가능</span>
                         <h2>클릭 한 번으로 완성되는<br>가계도 심층 분석 보고서</h2>
                         <p class="lead-desc">가계도를 그리는 것을 넘어, 가족 체계의 핵심 역동과 다세대 전수 과정을 전문가용 텍스트 리포트로 자동 생성합니다.</p>
 
@@ -1016,8 +1043,10 @@
                             <tr>
                                 <th>일시 (택 1)</th>
                                 <td>
-                                    <strong>1회차:</strong> 3월 14일(토) 14:00 ~ 18:00<br>
-                                    <strong>2회차:</strong> 3월 19일(목) 14:00 ~ 18:00
+                                    <del><strong>1회차:</strong> 3월 14일(토) 14:00 ~ 18:00<br></del>
+                                    <del><strong>2회차:</strong> 3월 19일(목) 14:00 ~ 18:00<br></del>
+                                    <strong>3회차:</strong> 4월 2일(목) 14:00 ~ 18:00<br>
+                                    <strong>4회차:</strong> 4월 21일(화) 14:00 ~ 18:00
                                 </td>
                             </tr>
                             <tr>
@@ -1060,12 +1089,21 @@
                                 <th>준비물</th>
                                 <td><strong>AI 실습을 위한 개인 노트북 지참 필수</strong></td>
                             </tr>
+                            <tr>
+                                <th>환불 및 양도 규정</th>
+                                <td>행사일 기준 7일 전 24:00까지 취소 시: 100% 전액 환불<br>
+                                    행사일 기준 6일 전 ~ 당일 취소 시: 환불 불가<br>
+                                    단, 환불 불가 기간에도 타인에게 양도는 가능합니다. (양도 시 행사 1일 전까지 주최 측으로 양수자의 성함/연락처/소속 전달 필수)<br>
+                                    주최 측의 사정으로 행사가 취소될 경우 전액 환불됩니다.
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <div class="form-container">
                         <a href="https://forms.gle/hvZBFJxVhsf4NQyd7" target="_blank" rel="noopener noreferrer"
                             class="btn btn-primary btn-full hover-pulse"
-                            style="display: block; text-align: center; font-size: 1.1rem; padding: 18px 24px;">지금 바로 워크숍
+                            style="display: block; text-align: center; font-size: 1.1rem; padding: 18px 24px;"
+                            onclick="gtag('event', 'workshop_apply_click', {event_category: 'engagement', event_label: 'apply_section_form'});">지금 바로 워크숍
                             신청하기</a>
                     </div>
                 </div>

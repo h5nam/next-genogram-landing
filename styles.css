@@ -1248,40 +1248,31 @@ h4 {
 }
 
 .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 40px;
-    width: 2px;
-    height: 100%;
-    background: var(--border-color);
+    display: none;
 }
 
 .timeline-item {
     position: relative;
     margin-bottom: 60px;
-    padding-left: 100px;
+    padding-left: 0;
 }
 
 .timeline-marker {
-    position: absolute;
-    left: 41px;
-    transform: translateX(-50%);
-    top: 5px;
+    position: static;
+    display: inline-flex;
     min-width: 60px;
     height: 40px;
-    padding: 0 12px;
+    padding: 0 14px;
     background: var(--primary-gradient);
     color: white;
     border-radius: 20px;
-    display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 0.9rem;
-    box-shadow: 0 0 0 5px var(--bg-ivory);
     z-index: 2;
     white-space: nowrap;
+    margin-bottom: 8px;
 }
 
 .timeline-content h3 {
@@ -2378,18 +2369,18 @@ h4 {
     }
 
     .timeline::before {
-        left: 25px;
+        display: none;
     }
 
     .timeline-item {
-        padding-left: 70px;
+        padding-left: 0;
         margin-bottom: 40px;
     }
 
     .timeline-marker {
-        left: 0;
-        width: 40px;
-        height: 40px;
+        width: auto;
+        height: 36px;
+        font-size: 0.8rem;
     }
 
     .carousel-track {

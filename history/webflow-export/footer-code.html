@@ -1,0 +1,177 @@
+<!-- ============================================
+     WEBFLOW FOOTER CODE
+     Project Settings > Custom Code > Footer Code
+     ============================================ -->
+
+<script>
+(function() {
+    'use strict';
+
+    // Wait for DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        initNgScripts();
+    });
+
+    // Also run when Webflow loads
+    if (typeof Webflow !== 'undefined') {
+        Webflow.push(function() {
+            initNgScripts();
+        });
+    }
+
+    function initNgScripts() {
+        // Prevent double initialization
+        if (window.ngInitialized) return;
+        window.ngInitialized = true;
+
+        // 1. Scroll Reveal - CSS-only로 변경되어 JavaScript 불필요
+        // (성능 최적화: IntersectionObserver 제거)
+
+        // 2. Carousel Function
+        function initCarousel(wrapperId, trackId, prevId, nextId, autoPlayMs) {
+            var wrapper = document.getElementById(wrapperId);
+            if (!wrapper) return;
+
+            var track = document.getElementById(trackId);
+            var prevBtn = document.getElementById(prevId);
+            var nextBtn = document.getElementById(nextId);
+
+            if (!track) return;
+
+            var originalItems = Array.from(track.children);
+            var totalOriginal = originalItems.length;
+            if (totalOriginal === 0) return;
+
+            // Clone items 1x for seamless loop (성능 최적화: 3x → 1x)
+            originalItems.forEach(function(item) {
+                track.appendChild(item.cloneNode(true));
+            });
+
+            var currentIndex = 0;
+            var isAnimating = false;
+            var autoTimer = null;
+
+            function getItemWidth() {
+                var firstItem = track.children[0];
+                if (!firstItem) return 0;
+                var style = window.getComputedStyle(track);
+                var gap = parseFloat(style.gap) || 30;
+                return firstItem.offsetWidth + gap;
+            }
+
+            function jumpTo(index, animate) {
+                if (animate) {
+                    track.style.transition = 'transform 0.4s ease-out';
+                } else {
+                    track.style.transition = 'none';
+                }
+                var offset = index * getItemWidth();
+                track.style.transform = 'translateX(-' + offset + 'px)';
+            }
+
+            function goNext() {
+                if (isAnimating) return;
+                isAnimating = true;
+                currentIndex++;
+                jumpTo(currentIndex, true);
+
+                setTimeout(function() {
+                    if (currentIndex >= totalOriginal) {
+                        currentIndex = 0;
+                        jumpTo(currentIndex, false);
+                    }
+                    isAnimating = false;
+                }, 420);
+            }
+
+            function goPrev() {
+                if (isAnimating) return;
+                isAnimating = true;
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = totalOriginal - 1;
+                    jumpTo(totalOriginal + currentIndex, false);
+                    requestAnimationFrame(function() {
+                        jumpTo(currentIndex, true);
+                    });
+                    setTimeout(function() { isAnimating = false; }, 420);
+                    return;
+                }
+                jumpTo(currentIndex, true);
+                setTimeout(function() { isAnimating = false; }, 420);
+            }
+
+            // Initial position
+            jumpTo(currentIndex, false);
+
+            // Button handlers
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    stopAuto();
+                    goNext();
+                    startAuto();
+                });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    stopAuto();
+                    goPrev();
+                    startAuto();
+                });
+            }
+
+            // Auto play
+            function startAuto() {
+                stopAuto();
+                if (autoPlayMs > 0) {
+                    autoTimer = setInterval(goNext, autoPlayMs);
+                }
+            }
+
+            function stopAuto() {
+                if (autoTimer) {
+                    clearInterval(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            // Pause on hover
+            wrapper.addEventListener('mouseenter', stopAuto);
+            wrapper.addEventListener('mouseleave', startAuto);
+
+            startAuto();
+        }
+
+        // Initialize carousels with ng- prefix
+        initCarousel('ng-review-carousel-wrapper', 'ng-review-track', 'ng-review-prev', 'ng-review-next', 3000);
+        initCarousel('ng-gallery-carousel-wrapper', 'ng-gallery-track', 'ng-gallery-prev', 'ng-gallery-next', 4000);
+
+        // 3. Smooth scrolling for anchor links
+        var links = document.querySelectorAll('.ng-wrapper a[href^="#ng-"]');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                var targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    var headerOffset = 70;
+                    var elementPosition = targetElement.getBoundingClientRect().top;
+                    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    }
+})();
+</script>
