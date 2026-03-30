@@ -2,13 +2,27 @@
 <html lang="ko">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJJWPD5C6F"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-JJJWPD5C6F');
+        // Pass UTM params from sessionStorage to GA4 config for proper session attribution
+        (function() {
+            var configParams = {};
+            try {
+                var stored = JSON.parse(sessionStorage.getItem('utm_params') || '{}');
+                if (stored.utm_source) configParams.campaign_source = stored.utm_source;
+                if (stored.utm_medium) configParams.campaign_medium = stored.utm_medium;
+                if (stored.utm_campaign) configParams.campaign_name = stored.utm_campaign;
+                if (stored.utm_content) configParams.campaign_content = stored.utm_content;
+                if (stored.utm_term) configParams.campaign_term = stored.utm_term;
+            } catch(e) {}
+            gtag('config', 'G-JJJWPD5C6F', configParams);
+        })();
     </script>
 
     <!-- Meta Pixel Code -->
@@ -29,8 +43,6 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가족 역동을 읽는 통찰, Next Genogram 심화 워크숍 | 마음토스</title>
     <meta name="description" content="기호를 넘어 내담자의 삶을 꿰뚫는 치유의 지도를 그립니다. 이인수 교수 심층 해석 x 마음토스 AI 실전 실습">
     <meta name="keywords" content="가계도, 가족상담, 가족역동, 이인수 교수, 마음토스, 사례개념화, 심리상담 워크숍, 심리상담사 교육, 다세대 전수과정, 보웬 가족치료">
@@ -52,12 +64,15 @@
     <meta name="twitter:image"
         content="https://api.mindthos.com/storage/v1/object/public/public-img/Genogram%20Seminar/genogram-seminar-og.jpg">
 
+    <!-- TossPayments SDK v2 -->
+    <script src="https://js.tosspayments.com/v2/standard"></script>
+
     <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="stylesheet" href="styles.css?v=22">
 </head>
 
 <body>
@@ -69,7 +84,7 @@
             </a>
             <div class="nav-actions">
                 <a href="https://app.mindthos.com/" class="nav-link hide-mobile" target="_blank">마음토스 무료로 체험하기</a>
-                <a href="#apply" class="nav-cta hover-lift" onclick="gtag('event', 'workshop_apply_click', {event_category: 'engagement', event_label: 'nav_cta'});">워크숍 신청하기</a>
+                <a href="javascript:void(0)" class="nav-cta hover-lift open-form-modal" onclick="gtag('event', 'workshop_apply_click', Object.assign({event_category: 'engagement', event_label: 'nav_cta'}, typeof getUtmEventParams==='function'?getUtmEventParams():{}));">워크숍 신청하기</a>
             </div>
         </div>
     </header>
@@ -134,7 +149,7 @@
                 <h2 class="sub-copy display-mobile">제1차 조기 매진 신화! 4시간 심화 워크숍</h2>
                 <h1 class="main-title">가족역동을 읽는 통찰을 배우고<br><span class="highlight">AI기술로 가계도를 완성합니다.</span>
                 </h1>
-                <a href="#apply" class="btn btn-primary btn-large hover-pulse" onclick="gtag('event', 'workshop_apply_click', {event_category: 'engagement', event_label: 'hero_cta'});">지금 바로 워크숍 신청하기</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-large hover-pulse open-form-modal" onclick="gtag('event', 'workshop_apply_click', Object.assign({event_category: 'engagement', event_label: 'hero_cta'}, typeof getUtmEventParams==='function'?getUtmEventParams():{}));">지금 바로 워크숍 신청하기</a>
             </div>
             <div class="hero-bg-glow"></div>
         </section>
@@ -1043,10 +1058,11 @@
                             <tr>
                                 <th>일시 (택 1)</th>
                                 <td>
-                                    <del><strong>1회차:</strong> 3월 14일(토) 14:00 ~ 18:00<br></del>
-                                    <del><strong>2회차:</strong> 3월 19일(목) 14:00 ~ 18:00<br></del>
-                                    <strong>3회차:</strong> 4월 2일(목) 14:00 ~ 18:00<br>
-                                    <strong>4회차:</strong> 4월 21일(화) 14:00 ~ 18:00
+                                    <del>3월 14일(토) 14:00 ~ 18:00<br></del>
+                                    <del>3월 19일(목) 14:00 ~ 18:00<br></del>
+                                    4월 2일(목) 14:00 ~ 18:00<br>
+                                    4월 21일(화) 14:00 ~ 18:00<br>
+                                    *희망하시는 수강 날짜를 선택해서 신청해주세요
                                 </td>
                             </tr>
                             <tr>
@@ -1100,11 +1116,9 @@
                         </tbody>
                     </table>
                     <div class="form-container">
-                        <a href="https://forms.gle/hvZBFJxVhsf4NQyd7" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-primary btn-full hover-pulse"
+                        <button type="button" class="btn btn-primary btn-full hover-pulse open-form-modal"
                             style="display: block; text-align: center; font-size: 1.1rem; padding: 18px 24px;"
-                            onclick="gtag('event', 'workshop_apply_click', {event_category: 'engagement', event_label: 'apply_section_form'});">지금 바로 워크숍
-                            신청하기</a>
+                            onclick="gtag('event', 'workshop_apply_click', Object.assign({event_category: 'engagement', event_label: 'apply_section_form'}, typeof getUtmEventParams==='function'?getUtmEventParams():{}));">지금 바로 워크숍 신청하기</button>
                     </div>
                 </div>
 
@@ -1113,13 +1127,342 @@
         </section>
     </main>
 
+    <!-- 신청 폼 모달 (데스크탑: 모달, 모바일: 풀스크린) -->
+    <div id="form-modal" class="form-modal-overlay" style="display:none;">
+        <div class="form-modal-container">
+            <div class="form-modal-header">
+                <button type="button" class="form-modal-back" id="form-modal-back" aria-label="뒤로 가기">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                </button>
+                <h3 class="form-modal-title">워크숍 신청서</h3>
+                <button type="button" class="form-modal-close" id="form-modal-close" aria-label="닫기">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="form-modal-desc">
+                <p class="form-modal-desc-main">아래 정보를 입력하시면 참가비(100,000원) 결제 화면으로 이동합니다.</p>
+                <div class="form-modal-desc-details">
+                    <span>📍 KT&G 상상플래닛 3층 (성수역 도보 5분)</span>
+                    <span>💻 개인 노트북 지참 필수</span>
+                </div>
+                <details class="form-modal-benefits">
+                    <summary>수강 혜택 보기</summary>
+                    <ul>
+                        <li>마음토스 Plus 3만 원 이용권 전원 증정</li>
+                        <li>가계도 심층 분석 보고서 생성 자격 부여</li>
+                        <li>이인수 교수 강의 PDF 교안 제공</li>
+                        <li>한국상담학회 교육연수 4시간 인정 및 수료증</li>
+                    </ul>
+                </details>
+            </div>
+            <div class="form-modal-body">
+                <form id="workshop-form" novalidate>
+                    <div class="form-group">
+                        <label for="form-name">성함 <span class="required">*</span></label>
+                        <input type="text" id="form-name" name="name" required placeholder="홍길동">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-phone">연락처 <span class="required">*</span></label>
+                        <input type="tel" id="form-phone" name="phone" required placeholder="010-0000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-affiliation">소속 <span class="required">*</span></label>
+                        <input type="text" id="form-affiliation" name="affiliation" required placeholder="소속 기관명">
+                    </div>
+                    <div class="form-group">
+                        <label>참석 희망 일정 <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label disabled">
+                                <input type="radio" name="schedule" value="3월 19일 (목) 14:00~18:00" disabled>
+
+                                3월 19일 (목) 14:00~18:00 <span class="badge-closed">마감</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="schedule" value="4월 2일 (목) 14:00~18:00" required>
+
+                                4월 2일 (목) 14:00~18:00
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="schedule" value="4월 21일 (화) 14:00~18:00">
+
+                                4월 21일 (화) 14:00~18:00
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">기대사항 / 질문 (선택)</label>
+                        <textarea id="form-message" name="message" rows="3" placeholder="궁금한 점이나 기대사항을 자유롭게 작성해주세요"></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="refund_agree" required>
+
+                            <span><a href="#" class="terms-link" data-terms="refund">환불 규정</a>을 확인하였으며, 동의합니다. <span class="required">*</span></span>
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy_agree" required>
+
+                            <span><a href="#" class="terms-link" data-terms="privacy">개인정보 수집 및 이용</a>에 동의합니다. <span class="required">*</span></span>
+                        </label>
+                    </div>
+                    <div id="form-error" class="form-error" style="display:none;"></div>
+                    <button type="submit" id="form-submit" class="btn btn-primary btn-full hover-pulse"
+                        style="font-size: 1.1rem; padding: 18px 24px;">
+                        <span class="btn-text">결제하고 신청하기</span>
+                        <span class="btn-loading" style="display:none;">
+                            <span class="spinner"></span> 결제 진행 중...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 약관 모달 -->
+    <div id="terms-modal" class="terms-modal-overlay" style="display:none;">
+        <div class="terms-modal-container">
+            <div class="terms-modal-header">
+                <button type="button" class="terms-modal-back" id="terms-modal-back" aria-label="뒤로 가기">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                </button>
+                <h3 class="terms-modal-title" id="terms-modal-title"></h3>
+                <button type="button" class="terms-modal-close" id="terms-modal-close" aria-label="닫기">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="terms-modal-body" id="terms-modal-body">
+                <!-- 환불 규정 -->
+                <div id="terms-content-refund" style="display:none;">
+                    <h4>워크숍 환불 및 양도 규정</h4>
+                    <p class="terms-updated">시행일: 2025년 3월 1일</p>
+
+                    <div class="terms-section">
+                        <h5>제1조 (목적)</h5>
+                        <p>본 규정은 마인드풀랩스 주식회사(이하 "회사")가 주최하는 가계도 AI 워크숍(이하 "워크숍") 참가 신청의 취소, 환불 및 양도에 관한 사항을 규정함을 목적으로 합니다.</p>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제2조 (환불 기준)</h5>
+                        <p>워크숍 참가비의 환불은 아래 기준에 따릅니다.</p>
+                        <table class="terms-table">
+                            <thead>
+                                <tr>
+                                    <th>취소 시점</th>
+                                    <th>환불 비율</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>행사일 기준 7일 전 24:00까지</td>
+                                    <td><strong>100% 전액 환불</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>행사일 기준 6일 전 ~ 당일</td>
+                                    <td><strong>환불 불가</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제3조 (양도)</h5>
+                        <ol>
+                            <li>환불 불가 기간에도 타인에게 참가 자격을 양도할 수 있습니다.</li>
+                            <li>양도 시 <strong>행사 1일 전까지</strong> 주최 측으로 양수자의 성함, 연락처, 소속을 전달해야 합니다.</li>
+                            <li>양도는 1회에 한하며, 양수자가 다시 제3자에게 재양도할 수 없습니다.</li>
+                        </ol>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제4조 (주최 측 사유에 의한 취소)</h5>
+                        <ol>
+                            <li>회사의 사정으로 워크숍이 취소될 경우 참가비 <strong>전액을 환불</strong>합니다.</li>
+                            <li>천재지변 등 불가항력 사유로 일정이 변경될 경우, 변경된 일정에 참석이 어려운 경우 전액 환불 처리됩니다.</li>
+                        </ol>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제5조 (환불 절차)</h5>
+                        <ol>
+                            <li>환불 요청은 전화(010-7338-4843) 또는 이메일(business@mindfullabs.ai)로 접수합니다.</li>
+                            <li>환불은 요청일로부터 영업일 기준 5일 이내에 원래 결제 수단으로 처리됩니다.</li>
+                            <li>PG사(토스페이먼츠) 사정에 따라 환불 처리 기간이 다소 지연될 수 있습니다.</li>
+                        </ol>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제6조 (기타)</h5>
+                        <p>본 규정에 명시되지 않은 사항은 「전자상거래 등에서의 소비자보호에 관한 법률」 및 관계 법령에 따릅니다.</p>
+                    </div>
+                </div>
+
+                <!-- 개인정보 수집 및 이용 동의 -->
+                <div id="terms-content-privacy" style="display:none;">
+                    <h4>개인정보 수집 및 이용 동의</h4>
+                    <p class="terms-updated">시행일: 2025년 3월 1일</p>
+
+                    <p class="terms-intro">마인드풀랩스 주식회사(이하 "회사")는 워크숍 신청 및 운영을 위해 아래와 같이 개인정보를 수집·이용하고자 합니다. 내용을 자세히 읽으신 후 동의 여부를 결정하여 주십시오.</p>
+
+                    <div class="terms-section">
+                        <h5>제1조 (수집 및 이용 목적)</h5>
+                        <p>회사는 수집한 개인정보를 다음의 목적으로 이용합니다.</p>
+                        <ul>
+                            <li><strong>워크숍 신청 접수 및 본인 확인:</strong> 참가자 본인 확인, 신청 처리, 참가 자격 관리</li>
+                            <li><strong>워크숍 운영:</strong> 참석 명단 관리, 수료증 발급, 교육연수 시간 인정 처리</li>
+                            <li><strong>참가비 결제 및 환불 처리:</strong> 결제 확인, 환불 접수 및 처리</li>
+                            <li><strong>공지 및 안내:</strong> 워크숍 일정 변경, 장소 안내, 사전 안내 사항 전달</li>
+                            <li><strong>문의 대응:</strong> 참가자 질문 및 기대사항에 대한 답변</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제2조 (수집 항목)</h5>
+                        <table class="terms-table">
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>수집 항목</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>필수 항목</td>
+                                    <td>성함, 연락처(휴대전화번호), 소속 기관명, 참석 희망 일정</td>
+                                </tr>
+                                <tr>
+                                    <td>선택 항목</td>
+                                    <td>기대사항/질문</td>
+                                </tr>
+                                <tr>
+                                    <td>자동 수집</td>
+                                    <td>결제 정보(카드사명, 승인번호 등 — PG사 토스페이먼츠를 통해 처리)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제3조 (보유 및 이용 기간)</h5>
+                        <p>수집된 개인정보는 다음 기간 동안 보유·이용되며, 목적 달성 후 지체 없이 파기합니다.</p>
+                        <ul>
+                            <li><strong>워크숍 운영 관련 정보:</strong> 워크숍 종료 후 6개월까지 (수료증 재발급, 사후 문의 대응)</li>
+                            <li><strong>계약 또는 청약철회 등에 관한 기록:</strong> 5년 (전자상거래법)</li>
+                            <li><strong>대금결제 및 재화 등의 공급에 관한 기록:</strong> 5년 (전자상거래법)</li>
+                            <li><strong>소비자의 불만 또는 분쟁처리에 관한 기록:</strong> 3년 (전자상거래법)</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제4조 (개인정보의 제3자 제공)</h5>
+                        <p>회사는 원칙적으로 이용자의 동의 없이 개인정보를 외부에 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.</p>
+                        <ol>
+                            <li>이용자가 사전에 동의한 경우</li>
+                            <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+                        </ol>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제5조 (개인정보 처리 위탁)</h5>
+                        <table class="terms-table">
+                            <thead>
+                                <tr>
+                                    <th>수탁 업체</th>
+                                    <th>위탁 업무 내용</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>(주)토스페이먼츠</td>
+                                    <td>참가비 결제 처리 및 결제 도용 방지</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제6조 (이용자의 권리 및 행사 방법)</h5>
+                        <ol>
+                            <li>이용자는 언제든지 자신의 개인정보에 대해 열람, 수정, 삭제, 처리 정지를 요청할 수 있습니다.</li>
+                            <li>동의를 거부할 권리가 있으며, 다만 필수 항목에 대한 동의를 거부할 경우 워크숍 신청이 제한됩니다.</li>
+                        </ol>
+                    </div>
+
+                    <div class="terms-section">
+                        <h5>제7조 (개인정보 보호책임자)</h5>
+                        <ul>
+                            <li><strong>성명:</strong> 강호남</li>
+                            <li><strong>직책:</strong> CPO (Chief Privacy Officer)</li>
+                            <li><strong>이메일:</strong> business@mindfullabs.ai</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="terms-modal-footer">
+                <button type="button" class="btn btn-primary btn-full" id="terms-modal-confirm">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 감사 모달 -->
+    <div id="thank-you-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-icon">&#10003;</div>
+            <h3>결제 및 신청이 완료되었습니다!</h3>
+            <p class="modal-schedule"></p>
+            <p class="modal-note">등록이 완료되었습니다. 감사합니다!<br>문의: 010-7338-4843</p>
+            <button class="btn btn-primary modal-close-btn" onclick="document.getElementById('thank-you-modal').style.display='none'; document.body.style.overflow='';">확인</button>
+        </div>
+    </div>
+
     <footer class="footer">
-        <div class="container"
-            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <div class="footer-left">
-                <img src="https://cdn.prod.website-files.com/677d1f63644d3489a05f3021/6912b42c51f02284c5312a4a_logo_mindthos-3.webp"
-                    alt="마음토스 로고" style="height: 24px; margin-bottom: 10px; opacity: 0.7;">
-                <p>&copy; 2026 Mindful Labs Inc. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-left">
+                    <div class="footer-logo-wrap">
+                        <img src="https://cdn.prod.website-files.com/677d1f63644d3489a05f3021/6912b42c51f02284c5312a4a_logo_mindthos-3.webp"
+                            alt="마음토스 로고" class="footer-logo">
+                    </div>
+                    <div class="footer-left-grid">
+                        <div class="footer-left-item">
+                            <h4 class="footer-label">SNS</h4>
+                            <p><a href="https://www.instagram.com/mind.thos/" target="_blank" rel="noopener noreferrer">Instagram</a> &#124; <a href="https://www.threads.net/@mind.thos" target="_blank" rel="noopener noreferrer">Threads</a></p>
+                        </div>
+                        <div class="footer-left-item">
+                            <h4 class="footer-label">이메일</h4>
+                            <p><a href="mailto:business@mindfullabs.ai" target="_blank">business@mindfullabs.ai</a></p>
+                        </div>
+                        <div class="footer-left-item">
+                            <h4 class="footer-label">주소</h4>
+                            <p>서울특별시 성동구 뚝섬로13길 38,<br>4층 (성수동)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">회사 소개</h4>
+                        <a href="https://www.mindfullabs.ai/" target="_blank" rel="noopener noreferrer">마인드풀랩스</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">마음토스</h4>
+                        <a href="https://mindthos.com/" target="_blank" rel="noopener noreferrer">서비스 소개</a>
+                        <a href="https://rare-puppy-06f.notion.site/1c7dd162832d8036b331db9c0378e68d" target="_blank" rel="noopener noreferrer">사용 가이드</a>
+                        <a href="https://open.kakao.com/me/Mindthos" target="_blank" rel="noopener noreferrer">문의</a>
+                        <a href="https://mindthos.com/blog" target="_blank" rel="noopener noreferrer">블로그</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">약관</h4>
+                        <a href="https://app.mindthos.com/terms?type=service" target="_blank" rel="noopener noreferrer">서비스 이용약관</a>
+                        <a href="https://app.mindthos.com/terms?type=privacy" target="_blank" rel="noopener noreferrer">개인정보처리방침</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">Copyright &copy; Mindful Labs Inc. | All Rights Reserved</p>
+                <p class="footer-info">사업자등록번호 786-88-03152 | 통신판매신고번호 제2025-서울마포-0943호 |<br>마인드풀랩스 주식회사(Mindful Labs Inc.) | 대표: 강호남<br>서울특별시 성동구 뚝섬로13길 38, 4층 (성수동)</p>
             </div>
         </div>
     </footer>

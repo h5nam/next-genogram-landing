@@ -1,1 +1,5 @@
 .vercel
+apps-script.js
+.omc/
+.DS_Store
+api/
