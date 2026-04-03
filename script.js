@@ -195,6 +195,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Gallery carousel (auto-play every 4s)
     initCarousel('gallery-carousel-wrapper', 'gallery-track', 'gallery-prev', 'gallery-next', 4000);
 
+    // 2-1. Form Modal Banner Slider
+    (function () {
+        const track = document.querySelector('.form-modal-banner-track');
+        const dots = document.querySelectorAll('.banner-dot');
+        if (!track || !dots.length) return;
+        let current = 0;
+        const total = dots.length;
+        let interval;
+
+        function goTo(idx) {
+            current = idx;
+            track.style.transform = 'translateX(-' + (current * 100) + '%)';
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        function startAuto() {
+            interval = setInterval(function () { goTo((current + 1) % total); }, 3500);
+        }
+
+        function stopAuto() { clearInterval(interval); }
+
+        dots.forEach(function (dot) {
+            dot.addEventListener('click', function () {
+                stopAuto();
+                goTo(Number(this.dataset.index));
+                startAuto();
+            });
+        });
+
+        startAuto();
+    })();
+
     // 3. Form Modal Open/Close
     const formModal = document.getElementById('form-modal');
     const formModalClose = document.getElementById('form-modal-close');

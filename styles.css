@@ -2127,6 +2127,47 @@ h4 {
     display: none;
 }
 
+/* Banner Image Slider */
+.form-modal-banner {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.form-modal-banner-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.form-modal-banner-track img {
+    width: 100%;
+    flex-shrink: 0;
+    height: 180px;
+    object-fit: cover;
+}
+
+.form-modal-banner-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.banner-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.banner-dot.active {
+    background: white;
+}
+
 .form-modal-desc {
     padding: 16px 24px;
     background: #f8f9fa;
@@ -2177,11 +2218,14 @@ h4 {
     margin-bottom: 2px;
 }
 
-.form-modal-body {
-    padding: 24px;
+.form-modal-scroll {
     overflow-y: auto;
     flex: 1;
     -webkit-overflow-scrolling: touch;
+}
+
+.form-modal-body {
+    padding: 24px;
 }
 
 /* Mobile: full-screen depth page */
